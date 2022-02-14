@@ -2,5 +2,15 @@
   "name": "@sickfits/backend",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "keystone"
+  },
+  "dependencies": {
+    "@keystone-6/core": "^1.0.1",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
 }
