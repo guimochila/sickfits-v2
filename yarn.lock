@@ -543,6 +543,21 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@keystone-6/auth@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@keystone-6/auth/-/auth-1.0.2.tgz#3c09d501fcf544e7d7f622e42fe8bed753eaac58"
+  integrity sha512-mxtNzSYbOefLToWaikUZgKdg/ZC62+9B8uwBcRyXLvy3JJb2dh/SeZWnU+4A7R9ooL3G/wJXwXPmXY+KDVGXqw==
+  dependencies:
+    "@babel/runtime" "^7.16.3"
+    "@keystone-ui/button" "^6.0.0"
+    "@keystone-ui/core" "^4.0.0"
+    "@keystone-ui/fields" "^6.0.0"
+    "@keystone-ui/loading" "^5.0.0"
+    "@keystone-ui/notice" "^5.0.0"
+    cross-fetch "^3.1.4"
+    fast-deep-equal "^3.1.3"
+    graphql "^15.8.0"
+
 "@keystone-6/core@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@keystone-6/core/-/core-1.0.1.tgz#4d3b0fbe9ee95867a906289892a511c6a010b7ca"
@@ -2211,6 +2226,13 @@ crc@^3.4.4:
   integrity sha512-iX3mfgcTMIq3ZKLIsVFAbv7+Mc10kxabAGQb8HvjA1o3T1PIYprbakQ65d3I+2HGHt6nSKkM9PYjgoJO2KcFBQ==
   dependencies:
     buffer "^5.1.0"
+
+cross-fetch@^3.1.4:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
+  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  dependencies:
+    node-fetch "2.6.7"
 
 cross-spawn@7.0.3, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
@@ -4001,7 +4023,7 @@ node-fetch@2.6.6:
   dependencies:
     whatwg-url "^5.0.0"
 
-node-fetch@^2.6.0, node-fetch@^2.6.6, node-fetch@^2.6.7:
+node-fetch@2.6.7, node-fetch@^2.6.0, node-fetch@^2.6.6, node-fetch@^2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==

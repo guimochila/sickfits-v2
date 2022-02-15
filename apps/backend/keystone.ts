@@ -1,4 +1,6 @@
 import { config } from '@keystone-6/core'
+import { createAuth } from '@keystone-6/auth'
+import { statelessSessions } from '@keystone-6/core/session'
 import 'dotenv/config'
 import { User } from './schemas/User'
 
@@ -10,22 +12,35 @@ const sessionConfig = {
   secret: process.env.COOKIE_SECRET,
 }
 
-export default config({
-  server: {
-    cors: {
-      origin: [process.env.FRONTEND_URL],
-      credentials: true,
-    },
-    port,
+const { withAuth } = createAuth({
+  listKey: 'User',
+  identityField: 'email',
+  secretField: 'password',
+  initFirstItem: {
+    fields: ['name', 'email', 'password'],
   },
-  db: {
-    provider: 'postgresql',
-    url: databaseUrl,
-  },
-  lists: {
-    User,
-  },
-  ui: {
-    isAccessAllowed: () => true,
-  },
+  sessionData: 'id',
 })
+
+export default withAuth(
+  config({
+    server: {
+      cors: {
+        origin: [process.env.FRONTEND_URL],
+        credentials: true,
+      },
+      port,
+    },
+    db: {
+      provider: 'postgresql',
+      url: databaseUrl,
+    },
+    lists: {
+      User,
+    },
+    ui: {
+      isAccessAllowed: ({ session }) => !!session,
+    },
+    session: statelessSessions(sessionConfig),
+  }),
+)
