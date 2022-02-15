@@ -3,6 +3,7 @@ import { createAuth } from '@keystone-6/auth'
 import { statelessSessions } from '@keystone-6/core/session'
 import 'dotenv/config'
 import { User } from './schemas/User'
+import { Product } from './schemas/Product'
 
 const databaseUrl = process.env.DATABASE_URL || ''
 const port = parseInt(process.env.PORT) || 4000
@@ -37,6 +38,7 @@ export default withAuth(
     },
     lists: {
       User,
+      Product,
     },
     ui: {
       isAccessAllowed: ({ session }) => !!session,

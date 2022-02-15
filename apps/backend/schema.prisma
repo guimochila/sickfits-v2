@@ -19,3 +19,10 @@ model User {
 
   @@index([name])
 }
+
+model Product {
+  id          String  @id @default(cuid())
+  name        String  @default("")
+  description String  @default("")
+  status      String? @default("DRAFT")
+}
