@@ -21,8 +21,18 @@ model User {
 }
 
 model Product {
-  id          String  @id @default(cuid())
-  name        String  @default("")
-  description String  @default("")
-  status      String? @default("DRAFT")
+  id          String        @id @default(cuid())
+  name        String        @default("")
+  description String        @default("")
+  photo       ProductImage? @relation("Product_photo", fields: [photoId], references: [id])
+  photoId     String?       @unique @map("photo")
+  status      String?       @default("DRAFT")
+  price       Int?
+}
+
+model ProductImage {
+  id      String   @id @default(cuid())
+  image   Json?
+  altText String   @default("")
+  product Product? @relation("Product_photo")
 }
