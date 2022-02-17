@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "keystone",
+    "seed:data": "keystone --seed-data",
     "lint": "eslint --ext **/*{.js,.ts}"
   },
   "dependencies": {

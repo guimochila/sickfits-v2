@@ -5,6 +5,7 @@ import 'dotenv/config'
 import { User } from './schemas/User'
 import { Product } from './schemas/Product'
 import { ProductImage } from './schemas/ProductImage'
+import { insertSeedData } from './seed-data'
 
 const databaseUrl = process.env.DATABASE_URL || ''
 const port = parseInt(process.env.PORT) || 4000
@@ -36,6 +37,11 @@ export default withAuth(
     db: {
       provider: 'postgresql',
       url: databaseUrl,
+      async onConnect(keystone) {
+        if (process.argv.includes('--seed-data')) {
+          await insertSeedData(keystone)
+        }
+      },
     },
     lists: {
       User,
