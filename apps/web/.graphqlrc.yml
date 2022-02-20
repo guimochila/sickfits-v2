@@ -1,0 +1,7 @@
+schema: http://localhost:4000/api/graphql
+extensions:
+  codegen:
+    generates:
+      ./@types/graphql-generated/index.d.ts:
+        plugins:
+          - typescript

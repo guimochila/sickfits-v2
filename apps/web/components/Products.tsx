@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import useProducts from '../hooks/useProducts'
+import Product from './Product'
 
 const ProductsList = styled.div`
   display: grid;
@@ -8,19 +9,21 @@ const ProductsList = styled.div`
 `
 
 function Products() {
-  const { status, data, error, isLoading } = useProducts()
+  const productsQuery = useProducts()
 
-  if (isLoading) return <p>Loading</p>
+  if (productsQuery.isLoading) return <p>Loading</p>
 
-  console.log(data)
+  if (productsQuery.isSuccess) {
+    return (
+      <ProductsList>
+        {productsQuery.data.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
+      </ProductsList>
+    )
+  }
 
-  return (
-    <ProductsList>
-      {data.map((product) => (
-        <p key={product.id}>{product.name}</p>
-      ))}
-    </ProductsList>
-  )
+  throw new Error('This should be impossible')
 }
 
 export default Products
