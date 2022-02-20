@@ -35,8 +35,8 @@ export default withAuth(
       port,
     },
     db: {
-      provider: 'postgresql',
-      url: databaseUrl,
+      provider: 'sqlite',
+      url: 'file:./keystone.db',
       async onConnect(keystone) {
         if (process.argv.includes('--seed-data')) {
           await insertSeedData(keystone)
