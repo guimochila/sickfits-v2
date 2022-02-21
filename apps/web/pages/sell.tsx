@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
+import CreateProduct from '../components/CreateProduct'
 
 const SellPage: NextPage = () => {
   return (
     <div>
-      <h1>SellPage Page</h1>
+      <CreateProduct />
     </div>
   )
 }
