@@ -1,5 +1,5 @@
 import request, { gql } from 'graphql-request'
-import { useMutation } from 'react-query'
+import { useMutation, UseMutationOptions } from 'react-query'
 import { Product } from '../@types/graphql-generated'
 import { API_ENDPOINT } from '../config'
 
@@ -30,9 +30,13 @@ interface IMutationProduct {
   createProduct: Product
 }
 
-function useCreateProduct<T>(inputs: T) {
-  return useMutation<IMutationProduct>(() =>
-    request(API_ENDPOINT, CREATE_PRODUCT_MUTATION, inputs),
+function useCreateProduct<T>(
+  inputs: T,
+  options?: UseMutationOptions<IMutationProduct>,
+) {
+  return useMutation<IMutationProduct>(
+    () => request(API_ENDPOINT, CREATE_PRODUCT_MUTATION, inputs),
+    options,
   )
 }
 

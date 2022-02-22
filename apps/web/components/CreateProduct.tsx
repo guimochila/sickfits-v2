@@ -20,17 +20,21 @@ function CreateProduct() {
     price: 0,
     description: '',
   })
-  const productMutation = useCreateProduct<ProductCreateInput>(inputs)
   const router = useRouter()
+  const productMutation = useCreateProduct<ProductCreateInput>(inputs, {
+    onSuccess: async (data) => {
+      if (data) {
+        router.push({
+          pathname: `/products/${data.createProduct.id}`,
+        })
+      }
+    },
+  })
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     productMutation.mutate()
     clearForm()
-    console.log(productMutation)
-    // router.push({
-    //   pathname: `/products/${productMutation.data?.createProduct.id}`,
-    // })
   }
 
   return (
