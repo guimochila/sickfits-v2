@@ -5,3 +5,6 @@ extensions:
       ./@types/graphql-generated/index.d.ts:
         plugins:
           - typescript
+        config:
+          avoidOptionals: true
+          maybeValue: T

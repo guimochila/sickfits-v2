@@ -1,5 +1,5 @@
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
+export type Maybe<T> = T;
+export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -23,87 +23,87 @@ export type AuthenticatedItem = User;
  * All options are strings as they ultimately end up in a URL.
  */
 export type CloudinaryImageFormat = {
-  angle?: InputMaybe<Scalars['String']>;
-  aspect_ratio?: InputMaybe<Scalars['String']>;
-  background?: InputMaybe<Scalars['String']>;
-  border?: InputMaybe<Scalars['String']>;
-  color?: InputMaybe<Scalars['String']>;
-  color_space?: InputMaybe<Scalars['String']>;
-  crop?: InputMaybe<Scalars['String']>;
-  default_image?: InputMaybe<Scalars['String']>;
-  delay?: InputMaybe<Scalars['String']>;
-  density?: InputMaybe<Scalars['String']>;
-  dpr?: InputMaybe<Scalars['String']>;
-  effect?: InputMaybe<Scalars['String']>;
-  fetch_format?: InputMaybe<Scalars['String']>;
-  flags?: InputMaybe<Scalars['String']>;
-  format?: InputMaybe<Scalars['String']>;
-  gravity?: InputMaybe<Scalars['String']>;
-  height?: InputMaybe<Scalars['String']>;
-  opacity?: InputMaybe<Scalars['String']>;
-  overlay?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['String']>;
+  angle: InputMaybe<Scalars['String']>;
+  aspect_ratio: InputMaybe<Scalars['String']>;
+  background: InputMaybe<Scalars['String']>;
+  border: InputMaybe<Scalars['String']>;
+  color: InputMaybe<Scalars['String']>;
+  color_space: InputMaybe<Scalars['String']>;
+  crop: InputMaybe<Scalars['String']>;
+  default_image: InputMaybe<Scalars['String']>;
+  delay: InputMaybe<Scalars['String']>;
+  density: InputMaybe<Scalars['String']>;
+  dpr: InputMaybe<Scalars['String']>;
+  effect: InputMaybe<Scalars['String']>;
+  fetch_format: InputMaybe<Scalars['String']>;
+  flags: InputMaybe<Scalars['String']>;
+  format: InputMaybe<Scalars['String']>;
+  gravity: InputMaybe<Scalars['String']>;
+  height: InputMaybe<Scalars['String']>;
+  opacity: InputMaybe<Scalars['String']>;
+  overlay: InputMaybe<Scalars['String']>;
+  page: InputMaybe<Scalars['String']>;
   /**  Rewrites the filename to be this pretty string. Do not include `/` or `.` */
-  prettyName?: InputMaybe<Scalars['String']>;
-  quality?: InputMaybe<Scalars['String']>;
-  radius?: InputMaybe<Scalars['String']>;
-  transformation?: InputMaybe<Scalars['String']>;
-  underlay?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['String']>;
-  x?: InputMaybe<Scalars['String']>;
-  y?: InputMaybe<Scalars['String']>;
-  zoom?: InputMaybe<Scalars['String']>;
+  prettyName: InputMaybe<Scalars['String']>;
+  quality: InputMaybe<Scalars['String']>;
+  radius: InputMaybe<Scalars['String']>;
+  transformation: InputMaybe<Scalars['String']>;
+  underlay: InputMaybe<Scalars['String']>;
+  width: InputMaybe<Scalars['String']>;
+  x: InputMaybe<Scalars['String']>;
+  y: InputMaybe<Scalars['String']>;
+  zoom: InputMaybe<Scalars['String']>;
 };
 
 export type CloudinaryImage_File = {
   __typename?: 'CloudinaryImage_File';
-  encoding?: Maybe<Scalars['String']>;
-  filename?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['ID']>;
-  mimetype?: Maybe<Scalars['String']>;
-  originalFilename?: Maybe<Scalars['String']>;
-  publicUrl?: Maybe<Scalars['String']>;
-  publicUrlTransformed?: Maybe<Scalars['String']>;
+  encoding: Maybe<Scalars['String']>;
+  filename: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['ID']>;
+  mimetype: Maybe<Scalars['String']>;
+  originalFilename: Maybe<Scalars['String']>;
+  publicUrl: Maybe<Scalars['String']>;
+  publicUrlTransformed: Maybe<Scalars['String']>;
 };
 
 
 export type CloudinaryImage_FilePublicUrlTransformedArgs = {
-  transformation?: InputMaybe<CloudinaryImageFormat>;
+  transformation: InputMaybe<CloudinaryImageFormat>;
 };
 
 export type CreateInitialUserInput = {
-  email?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
+  email: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
+  password: InputMaybe<Scalars['String']>;
 };
 
 export type IdFilter = {
-  equals?: InputMaybe<Scalars['ID']>;
-  gt?: InputMaybe<Scalars['ID']>;
-  gte?: InputMaybe<Scalars['ID']>;
-  in?: InputMaybe<Array<Scalars['ID']>>;
-  lt?: InputMaybe<Scalars['ID']>;
-  lte?: InputMaybe<Scalars['ID']>;
-  not?: InputMaybe<IdFilter>;
-  notIn?: InputMaybe<Array<Scalars['ID']>>;
+  equals: InputMaybe<Scalars['ID']>;
+  gt: InputMaybe<Scalars['ID']>;
+  gte: InputMaybe<Scalars['ID']>;
+  in: InputMaybe<Array<Scalars['ID']>>;
+  lt: InputMaybe<Scalars['ID']>;
+  lte: InputMaybe<Scalars['ID']>;
+  not: InputMaybe<IdFilter>;
+  notIn: InputMaybe<Array<Scalars['ID']>>;
 };
 
 export type IntNullableFilter = {
-  equals?: InputMaybe<Scalars['Int']>;
-  gt?: InputMaybe<Scalars['Int']>;
-  gte?: InputMaybe<Scalars['Int']>;
-  in?: InputMaybe<Array<Scalars['Int']>>;
-  lt?: InputMaybe<Scalars['Int']>;
-  lte?: InputMaybe<Scalars['Int']>;
-  not?: InputMaybe<IntNullableFilter>;
-  notIn?: InputMaybe<Array<Scalars['Int']>>;
+  equals: InputMaybe<Scalars['Int']>;
+  gt: InputMaybe<Scalars['Int']>;
+  gte: InputMaybe<Scalars['Int']>;
+  in: InputMaybe<Array<Scalars['Int']>>;
+  lt: InputMaybe<Scalars['Int']>;
+  lte: InputMaybe<Scalars['Int']>;
+  not: InputMaybe<IntNullableFilter>;
+  notIn: InputMaybe<Array<Scalars['Int']>>;
 };
 
 export type KeystoneAdminMeta = {
   __typename?: 'KeystoneAdminMeta';
   enableSessionItem: Scalars['Boolean'];
   enableSignout: Scalars['Boolean'];
-  list?: Maybe<KeystoneAdminUiListMeta>;
+  list: Maybe<KeystoneAdminUiListMeta>;
   lists: Array<KeystoneAdminUiListMeta>;
 };
 
@@ -115,21 +115,21 @@ export type KeystoneAdminMetaListArgs = {
 export type KeystoneAdminUiFieldMeta = {
   __typename?: 'KeystoneAdminUIFieldMeta';
   createView: KeystoneAdminUiFieldMetaCreateView;
-  customViewsIndex?: Maybe<Scalars['Int']>;
-  fieldMeta?: Maybe<Scalars['JSON']>;
+  customViewsIndex: Maybe<Scalars['Int']>;
+  fieldMeta: Maybe<Scalars['JSON']>;
   isFilterable: Scalars['Boolean'];
   isOrderable: Scalars['Boolean'];
-  itemView?: Maybe<KeystoneAdminUiFieldMetaItemView>;
+  itemView: Maybe<KeystoneAdminUiFieldMetaItemView>;
   label: Scalars['String'];
   listView: KeystoneAdminUiFieldMetaListView;
   path: Scalars['String'];
-  search?: Maybe<QueryMode>;
+  search: Maybe<QueryMode>;
   viewsIndex: Scalars['Int'];
 };
 
 
 export type KeystoneAdminUiFieldMetaItemViewArgs = {
-  id?: InputMaybe<Scalars['ID']>;
+  id: InputMaybe<Scalars['ID']>;
 };
 
 export type KeystoneAdminUiFieldMetaCreateView = {
@@ -144,7 +144,7 @@ export enum KeystoneAdminUiFieldMetaCreateViewFieldMode {
 
 export type KeystoneAdminUiFieldMetaItemView = {
   __typename?: 'KeystoneAdminUIFieldMetaItemView';
-  fieldMode?: Maybe<KeystoneAdminUiFieldMetaItemViewFieldMode>;
+  fieldMode: Maybe<KeystoneAdminUiFieldMetaItemViewFieldMode>;
 };
 
 export enum KeystoneAdminUiFieldMetaItemViewFieldMode {
@@ -165,12 +165,12 @@ export enum KeystoneAdminUiFieldMetaListViewFieldMode {
 
 export type KeystoneAdminUiListMeta = {
   __typename?: 'KeystoneAdminUIListMeta';
-  description?: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
   fields: Array<KeystoneAdminUiFieldMeta>;
   hideCreate: Scalars['Boolean'];
   hideDelete: Scalars['Boolean'];
   initialColumns: Array<Scalars['String']>;
-  initialSort?: Maybe<KeystoneAdminUiSort>;
+  initialSort: Maybe<KeystoneAdminUiSort>;
   isHidden: Scalars['Boolean'];
   itemQueryName: Scalars['String'];
   key: Scalars['String'];
@@ -201,27 +201,27 @@ export type KeystoneMeta = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  authenticateUserWithPassword?: Maybe<UserAuthenticationWithPasswordResult>;
+  authenticateUserWithPassword: Maybe<UserAuthenticationWithPasswordResult>;
   createInitialUser: UserAuthenticationWithPasswordSuccess;
-  createProduct?: Maybe<Product>;
-  createProductImage?: Maybe<ProductImage>;
-  createProductImages?: Maybe<Array<Maybe<ProductImage>>>;
-  createProducts?: Maybe<Array<Maybe<Product>>>;
-  createUser?: Maybe<User>;
-  createUsers?: Maybe<Array<Maybe<User>>>;
-  deleteProduct?: Maybe<Product>;
-  deleteProductImage?: Maybe<ProductImage>;
-  deleteProductImages?: Maybe<Array<Maybe<ProductImage>>>;
-  deleteProducts?: Maybe<Array<Maybe<Product>>>;
-  deleteUser?: Maybe<User>;
-  deleteUsers?: Maybe<Array<Maybe<User>>>;
+  createProduct: Maybe<Product>;
+  createProductImage: Maybe<ProductImage>;
+  createProductImages: Maybe<Array<Maybe<ProductImage>>>;
+  createProducts: Maybe<Array<Maybe<Product>>>;
+  createUser: Maybe<User>;
+  createUsers: Maybe<Array<Maybe<User>>>;
+  deleteProduct: Maybe<Product>;
+  deleteProductImage: Maybe<ProductImage>;
+  deleteProductImages: Maybe<Array<Maybe<ProductImage>>>;
+  deleteProducts: Maybe<Array<Maybe<Product>>>;
+  deleteUser: Maybe<User>;
+  deleteUsers: Maybe<Array<Maybe<User>>>;
   endSession: Scalars['Boolean'];
-  updateProduct?: Maybe<Product>;
-  updateProductImage?: Maybe<ProductImage>;
-  updateProductImages?: Maybe<Array<Maybe<ProductImage>>>;
-  updateProducts?: Maybe<Array<Maybe<Product>>>;
-  updateUser?: Maybe<User>;
-  updateUsers?: Maybe<Array<Maybe<User>>>;
+  updateProduct: Maybe<Product>;
+  updateProductImage: Maybe<ProductImage>;
+  updateProductImages: Maybe<Array<Maybe<ProductImage>>>;
+  updateProducts: Maybe<Array<Maybe<Product>>>;
+  updateUser: Maybe<User>;
+  updateUsers: Maybe<Array<Maybe<User>>>;
 };
 
 
@@ -329,31 +329,31 @@ export type MutationUpdateUsersArgs = {
 };
 
 export type NestedStringFilter = {
-  contains?: InputMaybe<Scalars['String']>;
-  endsWith?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  gt?: InputMaybe<Scalars['String']>;
-  gte?: InputMaybe<Scalars['String']>;
-  in?: InputMaybe<Array<Scalars['String']>>;
-  lt?: InputMaybe<Scalars['String']>;
-  lte?: InputMaybe<Scalars['String']>;
-  not?: InputMaybe<NestedStringFilter>;
-  notIn?: InputMaybe<Array<Scalars['String']>>;
-  startsWith?: InputMaybe<Scalars['String']>;
+  contains: InputMaybe<Scalars['String']>;
+  endsWith: InputMaybe<Scalars['String']>;
+  equals: InputMaybe<Scalars['String']>;
+  gt: InputMaybe<Scalars['String']>;
+  gte: InputMaybe<Scalars['String']>;
+  in: InputMaybe<Array<Scalars['String']>>;
+  lt: InputMaybe<Scalars['String']>;
+  lte: InputMaybe<Scalars['String']>;
+  not: InputMaybe<NestedStringFilter>;
+  notIn: InputMaybe<Array<Scalars['String']>>;
+  startsWith: InputMaybe<Scalars['String']>;
 };
 
 export type NestedStringNullableFilter = {
-  contains?: InputMaybe<Scalars['String']>;
-  endsWith?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  gt?: InputMaybe<Scalars['String']>;
-  gte?: InputMaybe<Scalars['String']>;
-  in?: InputMaybe<Array<Scalars['String']>>;
-  lt?: InputMaybe<Scalars['String']>;
-  lte?: InputMaybe<Scalars['String']>;
-  not?: InputMaybe<NestedStringNullableFilter>;
-  notIn?: InputMaybe<Array<Scalars['String']>>;
-  startsWith?: InputMaybe<Scalars['String']>;
+  contains: InputMaybe<Scalars['String']>;
+  endsWith: InputMaybe<Scalars['String']>;
+  equals: InputMaybe<Scalars['String']>;
+  gt: InputMaybe<Scalars['String']>;
+  gte: InputMaybe<Scalars['String']>;
+  in: InputMaybe<Array<Scalars['String']>>;
+  lt: InputMaybe<Scalars['String']>;
+  lte: InputMaybe<Scalars['String']>;
+  not: InputMaybe<NestedStringNullableFilter>;
+  notIn: InputMaybe<Array<Scalars['String']>>;
+  startsWith: InputMaybe<Scalars['String']>;
 };
 
 export enum OrderDirection {
@@ -372,50 +372,50 @@ export type PasswordState = {
 
 export type Product = {
   __typename?: 'Product';
-  description?: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  name?: Maybe<Scalars['String']>;
-  photo?: Maybe<ProductImage>;
-  price?: Maybe<Scalars['Int']>;
-  status?: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
+  photo: Maybe<ProductImage>;
+  price: Maybe<Scalars['Int']>;
+  status: Maybe<Scalars['String']>;
 };
 
 export type ProductCreateInput = {
-  description?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  photo?: InputMaybe<ProductImageRelateToOneForCreateInput>;
-  price?: InputMaybe<Scalars['Int']>;
-  status?: InputMaybe<Scalars['String']>;
+  description: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
+  photo: InputMaybe<ProductImageRelateToOneForCreateInput>;
+  price: InputMaybe<Scalars['Int']>;
+  status: InputMaybe<Scalars['String']>;
 };
 
 export type ProductImage = {
   __typename?: 'ProductImage';
-  altText?: Maybe<Scalars['String']>;
+  altText: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  image?: Maybe<CloudinaryImage_File>;
-  product?: Maybe<Product>;
+  image: Maybe<CloudinaryImage_File>;
+  product: Maybe<Product>;
 };
 
 export type ProductImageCreateInput = {
-  altText?: InputMaybe<Scalars['String']>;
-  image?: InputMaybe<Scalars['Upload']>;
-  product?: InputMaybe<ProductRelateToOneForCreateInput>;
+  altText: InputMaybe<Scalars['String']>;
+  image: InputMaybe<Scalars['Upload']>;
+  product: InputMaybe<ProductRelateToOneForCreateInput>;
 };
 
 export type ProductImageOrderByInput = {
-  altText?: InputMaybe<OrderDirection>;
-  id?: InputMaybe<OrderDirection>;
+  altText: InputMaybe<OrderDirection>;
+  id: InputMaybe<OrderDirection>;
 };
 
 export type ProductImageRelateToOneForCreateInput = {
-  connect?: InputMaybe<ProductImageWhereUniqueInput>;
-  create?: InputMaybe<ProductImageCreateInput>;
+  connect: InputMaybe<ProductImageWhereUniqueInput>;
+  create: InputMaybe<ProductImageCreateInput>;
 };
 
 export type ProductImageRelateToOneForUpdateInput = {
-  connect?: InputMaybe<ProductImageWhereUniqueInput>;
-  create?: InputMaybe<ProductImageCreateInput>;
-  disconnect?: InputMaybe<Scalars['Boolean']>;
+  connect: InputMaybe<ProductImageWhereUniqueInput>;
+  create: InputMaybe<ProductImageCreateInput>;
+  disconnect: InputMaybe<Scalars['Boolean']>;
 };
 
 export type ProductImageUpdateArgs = {
@@ -424,41 +424,41 @@ export type ProductImageUpdateArgs = {
 };
 
 export type ProductImageUpdateInput = {
-  altText?: InputMaybe<Scalars['String']>;
-  image?: InputMaybe<Scalars['Upload']>;
-  product?: InputMaybe<ProductRelateToOneForUpdateInput>;
+  altText: InputMaybe<Scalars['String']>;
+  image: InputMaybe<Scalars['Upload']>;
+  product: InputMaybe<ProductRelateToOneForUpdateInput>;
 };
 
 export type ProductImageWhereInput = {
-  AND?: InputMaybe<Array<ProductImageWhereInput>>;
-  NOT?: InputMaybe<Array<ProductImageWhereInput>>;
-  OR?: InputMaybe<Array<ProductImageWhereInput>>;
-  altText?: InputMaybe<StringFilter>;
-  id?: InputMaybe<IdFilter>;
-  product?: InputMaybe<ProductWhereInput>;
+  AND: InputMaybe<Array<ProductImageWhereInput>>;
+  NOT: InputMaybe<Array<ProductImageWhereInput>>;
+  OR: InputMaybe<Array<ProductImageWhereInput>>;
+  altText: InputMaybe<StringFilter>;
+  id: InputMaybe<IdFilter>;
+  product: InputMaybe<ProductWhereInput>;
 };
 
 export type ProductImageWhereUniqueInput = {
-  id?: InputMaybe<Scalars['ID']>;
+  id: InputMaybe<Scalars['ID']>;
 };
 
 export type ProductOrderByInput = {
-  description?: InputMaybe<OrderDirection>;
-  id?: InputMaybe<OrderDirection>;
-  name?: InputMaybe<OrderDirection>;
-  price?: InputMaybe<OrderDirection>;
-  status?: InputMaybe<OrderDirection>;
+  description: InputMaybe<OrderDirection>;
+  id: InputMaybe<OrderDirection>;
+  name: InputMaybe<OrderDirection>;
+  price: InputMaybe<OrderDirection>;
+  status: InputMaybe<OrderDirection>;
 };
 
 export type ProductRelateToOneForCreateInput = {
-  connect?: InputMaybe<ProductWhereUniqueInput>;
-  create?: InputMaybe<ProductCreateInput>;
+  connect: InputMaybe<ProductWhereUniqueInput>;
+  create: InputMaybe<ProductCreateInput>;
 };
 
 export type ProductRelateToOneForUpdateInput = {
-  connect?: InputMaybe<ProductWhereUniqueInput>;
-  create?: InputMaybe<ProductCreateInput>;
-  disconnect?: InputMaybe<Scalars['Boolean']>;
+  connect: InputMaybe<ProductWhereUniqueInput>;
+  create: InputMaybe<ProductCreateInput>;
+  disconnect: InputMaybe<Scalars['Boolean']>;
 };
 
 export type ProductUpdateArgs = {
@@ -467,42 +467,42 @@ export type ProductUpdateArgs = {
 };
 
 export type ProductUpdateInput = {
-  description?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  photo?: InputMaybe<ProductImageRelateToOneForUpdateInput>;
-  price?: InputMaybe<Scalars['Int']>;
-  status?: InputMaybe<Scalars['String']>;
+  description: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
+  photo: InputMaybe<ProductImageRelateToOneForUpdateInput>;
+  price: InputMaybe<Scalars['Int']>;
+  status: InputMaybe<Scalars['String']>;
 };
 
 export type ProductWhereInput = {
-  AND?: InputMaybe<Array<ProductWhereInput>>;
-  NOT?: InputMaybe<Array<ProductWhereInput>>;
-  OR?: InputMaybe<Array<ProductWhereInput>>;
-  description?: InputMaybe<StringFilter>;
-  id?: InputMaybe<IdFilter>;
-  name?: InputMaybe<StringFilter>;
-  photo?: InputMaybe<ProductImageWhereInput>;
-  price?: InputMaybe<IntNullableFilter>;
-  status?: InputMaybe<StringNullableFilter>;
+  AND: InputMaybe<Array<ProductWhereInput>>;
+  NOT: InputMaybe<Array<ProductWhereInput>>;
+  OR: InputMaybe<Array<ProductWhereInput>>;
+  description: InputMaybe<StringFilter>;
+  id: InputMaybe<IdFilter>;
+  name: InputMaybe<StringFilter>;
+  photo: InputMaybe<ProductImageWhereInput>;
+  price: InputMaybe<IntNullableFilter>;
+  status: InputMaybe<StringNullableFilter>;
 };
 
 export type ProductWhereUniqueInput = {
-  id?: InputMaybe<Scalars['ID']>;
+  id: InputMaybe<Scalars['ID']>;
 };
 
 export type Query = {
   __typename?: 'Query';
-  authenticatedItem?: Maybe<AuthenticatedItem>;
+  authenticatedItem: Maybe<AuthenticatedItem>;
   keystone: KeystoneMeta;
-  product?: Maybe<Product>;
-  productImage?: Maybe<ProductImage>;
-  productImages?: Maybe<Array<ProductImage>>;
-  productImagesCount?: Maybe<Scalars['Int']>;
-  products?: Maybe<Array<Product>>;
-  productsCount?: Maybe<Scalars['Int']>;
-  user?: Maybe<User>;
-  users?: Maybe<Array<User>>;
-  usersCount?: Maybe<Scalars['Int']>;
+  product: Maybe<Product>;
+  productImage: Maybe<ProductImage>;
+  productImages: Maybe<Array<ProductImage>>;
+  productImagesCount: Maybe<Scalars['Int']>;
+  products: Maybe<Array<Product>>;
+  productsCount: Maybe<Scalars['Int']>;
+  user: Maybe<User>;
+  users: Maybe<Array<User>>;
+  usersCount: Maybe<Scalars['Int']>;
 };
 
 
@@ -519,7 +519,7 @@ export type QueryProductImageArgs = {
 export type QueryProductImagesArgs = {
   orderBy?: Array<ProductImageOrderByInput>;
   skip?: Scalars['Int'];
-  take?: InputMaybe<Scalars['Int']>;
+  take: InputMaybe<Scalars['Int']>;
   where?: ProductImageWhereInput;
 };
 
@@ -532,7 +532,7 @@ export type QueryProductImagesCountArgs = {
 export type QueryProductsArgs = {
   orderBy?: Array<ProductOrderByInput>;
   skip?: Scalars['Int'];
-  take?: InputMaybe<Scalars['Int']>;
+  take: InputMaybe<Scalars['Int']>;
   where?: ProductWhereInput;
 };
 
@@ -550,7 +550,7 @@ export type QueryUserArgs = {
 export type QueryUsersArgs = {
   orderBy?: Array<UserOrderByInput>;
   skip?: Scalars['Int'];
-  take?: InputMaybe<Scalars['Int']>;
+  take: InputMaybe<Scalars['Int']>;
   where?: UserWhereInput;
 };
 
@@ -565,39 +565,39 @@ export enum QueryMode {
 }
 
 export type StringFilter = {
-  contains?: InputMaybe<Scalars['String']>;
-  endsWith?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  gt?: InputMaybe<Scalars['String']>;
-  gte?: InputMaybe<Scalars['String']>;
-  in?: InputMaybe<Array<Scalars['String']>>;
-  lt?: InputMaybe<Scalars['String']>;
-  lte?: InputMaybe<Scalars['String']>;
-  not?: InputMaybe<NestedStringFilter>;
-  notIn?: InputMaybe<Array<Scalars['String']>>;
-  startsWith?: InputMaybe<Scalars['String']>;
+  contains: InputMaybe<Scalars['String']>;
+  endsWith: InputMaybe<Scalars['String']>;
+  equals: InputMaybe<Scalars['String']>;
+  gt: InputMaybe<Scalars['String']>;
+  gte: InputMaybe<Scalars['String']>;
+  in: InputMaybe<Array<Scalars['String']>>;
+  lt: InputMaybe<Scalars['String']>;
+  lte: InputMaybe<Scalars['String']>;
+  not: InputMaybe<NestedStringFilter>;
+  notIn: InputMaybe<Array<Scalars['String']>>;
+  startsWith: InputMaybe<Scalars['String']>;
 };
 
 export type StringNullableFilter = {
-  contains?: InputMaybe<Scalars['String']>;
-  endsWith?: InputMaybe<Scalars['String']>;
-  equals?: InputMaybe<Scalars['String']>;
-  gt?: InputMaybe<Scalars['String']>;
-  gte?: InputMaybe<Scalars['String']>;
-  in?: InputMaybe<Array<Scalars['String']>>;
-  lt?: InputMaybe<Scalars['String']>;
-  lte?: InputMaybe<Scalars['String']>;
-  not?: InputMaybe<NestedStringNullableFilter>;
-  notIn?: InputMaybe<Array<Scalars['String']>>;
-  startsWith?: InputMaybe<Scalars['String']>;
+  contains: InputMaybe<Scalars['String']>;
+  endsWith: InputMaybe<Scalars['String']>;
+  equals: InputMaybe<Scalars['String']>;
+  gt: InputMaybe<Scalars['String']>;
+  gte: InputMaybe<Scalars['String']>;
+  in: InputMaybe<Array<Scalars['String']>>;
+  lt: InputMaybe<Scalars['String']>;
+  lte: InputMaybe<Scalars['String']>;
+  not: InputMaybe<NestedStringNullableFilter>;
+  notIn: InputMaybe<Array<Scalars['String']>>;
+  startsWith: InputMaybe<Scalars['String']>;
 };
 
 export type User = {
   __typename?: 'User';
-  email?: Maybe<Scalars['String']>;
+  email: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  name?: Maybe<Scalars['String']>;
-  password?: Maybe<PasswordState>;
+  name: Maybe<Scalars['String']>;
+  password: Maybe<PasswordState>;
 };
 
 export type UserAuthenticationWithPasswordFailure = {
@@ -614,15 +614,15 @@ export type UserAuthenticationWithPasswordSuccess = {
 };
 
 export type UserCreateInput = {
-  email?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
+  email: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
+  password: InputMaybe<Scalars['String']>;
 };
 
 export type UserOrderByInput = {
-  email?: InputMaybe<OrderDirection>;
-  id?: InputMaybe<OrderDirection>;
-  name?: InputMaybe<OrderDirection>;
+  email: InputMaybe<OrderDirection>;
+  id: InputMaybe<OrderDirection>;
+  name: InputMaybe<OrderDirection>;
 };
 
 export type UserUpdateArgs = {
@@ -631,22 +631,22 @@ export type UserUpdateArgs = {
 };
 
 export type UserUpdateInput = {
-  email?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
+  email: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
+  password: InputMaybe<Scalars['String']>;
 };
 
 export type UserWhereInput = {
-  AND?: InputMaybe<Array<UserWhereInput>>;
-  NOT?: InputMaybe<Array<UserWhereInput>>;
-  OR?: InputMaybe<Array<UserWhereInput>>;
-  email?: InputMaybe<StringFilter>;
-  id?: InputMaybe<IdFilter>;
-  name?: InputMaybe<StringFilter>;
-  password?: InputMaybe<PasswordFilter>;
+  AND: InputMaybe<Array<UserWhereInput>>;
+  NOT: InputMaybe<Array<UserWhereInput>>;
+  OR: InputMaybe<Array<UserWhereInput>>;
+  email: InputMaybe<StringFilter>;
+  id: InputMaybe<IdFilter>;
+  name: InputMaybe<StringFilter>;
+  password: InputMaybe<PasswordFilter>;
 };
 
 export type UserWhereUniqueInput = {
-  email?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['ID']>;
+  email: InputMaybe<Scalars['String']>;
+  id: InputMaybe<Scalars['ID']>;
 };
