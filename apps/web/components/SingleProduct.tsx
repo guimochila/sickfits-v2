@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import useProduct from '../hooks/useProduct'
 import DisplayError from './DisplayError'
+import ProductStyled from './styled/ ProductStyles'
 
 interface ISingleProductProps {
   id: string
@@ -18,7 +19,7 @@ function SingleProduct({ id }: ISingleProductProps) {
     const { name, description, photo } = product.data
 
     return (
-      <div>
+      <ProductStyled>
         <Head>
           <title>Sick Fits | {name}</title>
         </Head>
@@ -32,7 +33,7 @@ function SingleProduct({ id }: ISingleProductProps) {
           <h2>{name}</h2>
           <p>{description}</p>
         </div>
-      </div>
+      </ProductStyled>
     )
   }
 
