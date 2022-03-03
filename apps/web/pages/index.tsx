@@ -1,9 +1,13 @@
 import type { NextPage } from 'next'
+import Pagination from '../components/Pagination'
+import Products from '../components/Products'
 
 const Home: NextPage = () => {
   return (
     <div>
-      <h1>Hello Page</h1>
+      <Pagination page={1} />
+      <Products />
+      <Pagination page={1} />
     </div>
   )
 }
