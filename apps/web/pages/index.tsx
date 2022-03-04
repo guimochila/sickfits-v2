@@ -1,15 +1,9 @@
 import type { NextPage } from 'next'
-import Pagination from '../components/Pagination'
-import Products from '../components/Products'
+
+import ProductsPage from './products'
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <Pagination page={1} />
-      <Products />
-      <Pagination page={1} />
-    </div>
-  )
+  return <ProductsPage />
 }
 
 export default Home

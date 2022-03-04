@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { perPage } from '../config'
 import useProducts from '../hooks/useProducts'
 import Product from './Product'
 
@@ -8,8 +9,13 @@ const ProductsList = styled.div`
   grid-gap: 60px;
 `
 
-function Products() {
-  const productsQuery = useProducts()
+interface IProductsProps {
+  page: number
+}
+
+function Products({ page }: IProductsProps) {
+  const skip = page * perPage - perPage
+  const productsQuery = useProducts({ skip, take: perPage })
 
   if (productsQuery.isLoading) return <p>Loading</p>
 
