@@ -1,6 +1,6 @@
-import request, { gql } from 'graphql-request'
+import { gql } from 'graphql-request'
 import { useQuery } from 'react-query'
-import { API_ENDPOINT } from '../config'
+import gqlClient from '../utils/requestClient'
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
@@ -15,7 +15,7 @@ interface IProductsQueryResponse {
 function useProductsCount() {
   const productsCount = useQuery<IProductsQueryResponse>(
     'productCount',
-    async () => await request(API_ENDPOINT, PAGINATION_QUERY),
+    async () => await gqlClient.request(PAGINATION_QUERY),
   )
 
   return productsCount

@@ -1,7 +1,8 @@
-import request, { gql } from 'graphql-request'
+import { gql } from 'graphql-request'
 import { useQuery } from 'react-query'
 import { Product } from '../@types/graphql-generated'
-import { API_ENDPOINT } from '../config'
+
+import gqlClient from '../utils/requestClient'
 
 const SINGLE_PRODUCT_QUERY = gql`
   query SINGLE_PRODUCT_QUERY($id: ID!) {
@@ -21,7 +22,7 @@ const SINGLE_PRODUCT_QUERY = gql`
 
 function useProduct(productId: string) {
   return useQuery<Product>(['product', productId], async () => {
-    const { product } = await request(API_ENDPOINT, SINGLE_PRODUCT_QUERY, {
+    const { product } = await gqlClient.request(SINGLE_PRODUCT_QUERY, {
       id: productId,
     })
     return product

@@ -1,6 +1,6 @@
-import request, { gql } from 'graphql-request'
+import { gql } from 'graphql-request'
 import { useMutation, UseMutationOptions } from 'react-query'
-import { API_ENDPOINT } from '../config'
+import gqlClient from '../utils/requestClient'
 
 const UPDATE_PRODUCT_MUTATION = gql`
   mutation UPDATE_PRODUCT_MUTATION(
@@ -33,7 +33,7 @@ function useUpdateProduct(
   options?: UseMutationOptions<IUpdateProductProps>,
 ) {
   return useMutation(
-    () => request(API_ENDPOINT, UPDATE_PRODUCT_MUTATION, { id, ...data }),
+    () => gqlClient.request(UPDATE_PRODUCT_MUTATION, { id, ...data }),
     options,
   )
 }

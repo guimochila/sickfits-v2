@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
-import { request, gql } from 'graphql-request'
-import { API_ENDPOINT } from '../config'
+import { gql } from 'graphql-request'
 import { Product } from '../@types/graphql-generated'
+import gqlClient from '../utils/requestClient'
 
 const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY($take: Int = 0, $skip: Int! = 0) {
@@ -28,7 +28,7 @@ interface IUseProductsProps {
 
 function useProducts({ take, skip }: IUseProductsProps) {
   return useQuery<Product[]>(['products', skip, take], async () => {
-    const { products } = await request(API_ENDPOINT, ALL_PRODUCTS_QUERY, {
+    const { products } = await gqlClient.request(ALL_PRODUCTS_QUERY, {
       take,
       skip,
     })
