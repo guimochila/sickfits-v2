@@ -1,10 +1,19 @@
+import styled from '@emotion/styled'
 import SignIn from '../components/SignIn'
+import SignUp from '../components/SignUp'
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 2rem;
+`
 
 function SignInPage() {
   return (
-    <div>
+    <Grid>
       <SignIn />
-    </div>
+      <SignUp />
+    </Grid>
   )
 }
 
