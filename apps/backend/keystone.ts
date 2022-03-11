@@ -23,6 +23,12 @@ const { withAuth } = createAuth({
     fields: ['name', 'email', 'password'],
   },
   sessionData: 'id',
+  passwordResetLink: {
+    sendToken: async () => {
+      console.log('hi')
+    },
+    tokensValidForMins: 60,
+  },
 })
 
 export default withAuth(

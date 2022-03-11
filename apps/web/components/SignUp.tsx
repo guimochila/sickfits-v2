@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
 import useForm from '../hooks/useForm'
 import useSignUp from '../hooks/useSignUp'
@@ -6,6 +7,7 @@ import Form from './styled/Form'
 
 function SignUp() {
   const [error, setError] = useState<Record<'message', string> | null>(null)
+  const router = useRouter()
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
     name: '',
@@ -15,7 +17,10 @@ function SignUp() {
     { email: inputs.email, password: inputs.password, name: inputs.name },
     {
       onSuccess: async (data) => {
-        console.log(data)
+        router.push({
+          pathname: '/thankyou',
+          query: { email: data.createUser.email },
+        })
       },
       onError: () => {
         setError({

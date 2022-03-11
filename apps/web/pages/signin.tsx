@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import RequestReset from '../components/RequestReset'
 import SignIn from '../components/SignIn'
 import SignUp from '../components/SignUp'
 
@@ -13,6 +14,7 @@ function SignInPage() {
     <Grid>
       <SignIn />
       <SignUp />
+      <RequestReset />
     </Grid>
   )
 }

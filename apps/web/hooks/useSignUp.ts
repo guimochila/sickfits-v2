@@ -17,11 +17,15 @@ const SIGNUP_MUTATION = gql`
   }
 `
 
+interface IUseSignUpResponse {
+  createUser: User
+}
+
 function useSignUp(
   data: CreateInitialUserInput,
-  options?: UseMutationOptions<User>,
+  options?: UseMutationOptions<IUseSignUpResponse>,
 ) {
-  return useMutation<User>(async () => {
+  return useMutation<IUseSignUpResponse>(async () => {
     return gqlClient.request(SIGNUP_MUTATION, data)
   }, options)
 }
