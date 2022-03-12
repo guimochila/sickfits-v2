@@ -6,6 +6,7 @@ import { User } from './schemas/User'
 import { Product } from './schemas/Product'
 import { ProductImage } from './schemas/ProductImage'
 import { insertSeedData } from './seed-data'
+import MailService from './lib/mail'
 
 const databaseUrl = process.env.DATABASE_URL || ''
 const port = parseInt(process.env.PORT) || 4000
@@ -24,8 +25,8 @@ const { withAuth } = createAuth({
   },
   sessionData: 'id',
   passwordResetLink: {
-    sendToken: async () => {
-      console.log('hi')
+    sendToken: async ({ token, identity }) => {
+      MailService.sendMail(token, identity)
     },
     tokensValidForMins: 60,
   },

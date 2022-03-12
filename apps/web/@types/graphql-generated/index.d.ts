@@ -10,6 +10,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  DateTime: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
   /** The `Upload` scalar type represents a file upload. */
@@ -75,6 +76,17 @@ export type CreateInitialUserInput = {
   email: InputMaybe<Scalars['String']>;
   name: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
+};
+
+export type DateTimeNullableFilter = {
+  equals: InputMaybe<Scalars['DateTime']>;
+  gt: InputMaybe<Scalars['DateTime']>;
+  gte: InputMaybe<Scalars['DateTime']>;
+  in: InputMaybe<Array<Scalars['DateTime']>>;
+  lt: InputMaybe<Scalars['DateTime']>;
+  lte: InputMaybe<Scalars['DateTime']>;
+  not: InputMaybe<DateTimeNullableFilter>;
+  notIn: InputMaybe<Array<Scalars['DateTime']>>;
 };
 
 export type IdFilter = {
@@ -216,6 +228,8 @@ export type Mutation = {
   deleteUser: Maybe<User>;
   deleteUsers: Maybe<Array<Maybe<User>>>;
   endSession: Scalars['Boolean'];
+  redeemUserPasswordResetToken: Maybe<RedeemUserPasswordResetTokenResult>;
+  sendUserPasswordResetLink: Scalars['Boolean'];
   updateProduct: Maybe<Product>;
   updateProductImage: Maybe<ProductImage>;
   updateProductImages: Maybe<Array<Maybe<ProductImage>>>;
@@ -296,6 +310,18 @@ export type MutationDeleteUsersArgs = {
 };
 
 
+export type MutationRedeemUserPasswordResetTokenArgs = {
+  email: Scalars['String'];
+  password: Scalars['String'];
+  token: Scalars['String'];
+};
+
+
+export type MutationSendUserPasswordResetLinkArgs = {
+  email: Scalars['String'];
+};
+
+
 export type MutationUpdateProductArgs = {
   data: ProductUpdateInput;
   where: ProductWhereUniqueInput;
@@ -364,6 +390,12 @@ export enum OrderDirection {
 export type PasswordFilter = {
   isSet: Scalars['Boolean'];
 };
+
+export enum PasswordResetRedemptionErrorCode {
+  Failure = 'FAILURE',
+  TokenExpired = 'TOKEN_EXPIRED',
+  TokenRedeemed = 'TOKEN_REDEEMED'
+}
 
 export type PasswordState = {
   __typename?: 'PasswordState';
@@ -503,6 +535,7 @@ export type Query = {
   user: Maybe<User>;
   users: Maybe<Array<User>>;
   usersCount: Maybe<Scalars['Int']>;
+  validateUserPasswordResetToken: Maybe<ValidateUserPasswordResetTokenResult>;
 };
 
 
@@ -559,10 +592,22 @@ export type QueryUsersCountArgs = {
   where?: UserWhereInput;
 };
 
+
+export type QueryValidateUserPasswordResetTokenArgs = {
+  email: Scalars['String'];
+  token: Scalars['String'];
+};
+
 export enum QueryMode {
   Default = 'default',
   Insensitive = 'insensitive'
 }
+
+export type RedeemUserPasswordResetTokenResult = {
+  __typename?: 'RedeemUserPasswordResetTokenResult';
+  code: PasswordResetRedemptionErrorCode;
+  message: Scalars['String'];
+};
 
 export type StringFilter = {
   contains: InputMaybe<Scalars['String']>;
@@ -598,6 +643,9 @@ export type User = {
   id: Scalars['ID'];
   name: Maybe<Scalars['String']>;
   password: Maybe<PasswordState>;
+  passwordResetIssuedAt: Maybe<Scalars['DateTime']>;
+  passwordResetRedeemedAt: Maybe<Scalars['DateTime']>;
+  passwordResetToken: Maybe<PasswordState>;
 };
 
 export type UserAuthenticationWithPasswordFailure = {
@@ -617,12 +665,17 @@ export type UserCreateInput = {
   email: InputMaybe<Scalars['String']>;
   name: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
+  passwordResetIssuedAt: InputMaybe<Scalars['DateTime']>;
+  passwordResetRedeemedAt: InputMaybe<Scalars['DateTime']>;
+  passwordResetToken: InputMaybe<Scalars['String']>;
 };
 
 export type UserOrderByInput = {
   email: InputMaybe<OrderDirection>;
   id: InputMaybe<OrderDirection>;
   name: InputMaybe<OrderDirection>;
+  passwordResetIssuedAt: InputMaybe<OrderDirection>;
+  passwordResetRedeemedAt: InputMaybe<OrderDirection>;
 };
 
 export type UserUpdateArgs = {
@@ -634,6 +687,9 @@ export type UserUpdateInput = {
   email: InputMaybe<Scalars['String']>;
   name: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
+  passwordResetIssuedAt: InputMaybe<Scalars['DateTime']>;
+  passwordResetRedeemedAt: InputMaybe<Scalars['DateTime']>;
+  passwordResetToken: InputMaybe<Scalars['String']>;
 };
 
 export type UserWhereInput = {
@@ -644,9 +700,18 @@ export type UserWhereInput = {
   id: InputMaybe<IdFilter>;
   name: InputMaybe<StringFilter>;
   password: InputMaybe<PasswordFilter>;
+  passwordResetIssuedAt: InputMaybe<DateTimeNullableFilter>;
+  passwordResetRedeemedAt: InputMaybe<DateTimeNullableFilter>;
+  passwordResetToken: InputMaybe<PasswordFilter>;
 };
 
 export type UserWhereUniqueInput = {
   email: InputMaybe<Scalars['String']>;
   id: InputMaybe<Scalars['ID']>;
+};
+
+export type ValidateUserPasswordResetTokenResult = {
+  __typename?: 'ValidateUserPasswordResetTokenResult';
+  code: PasswordResetRedemptionErrorCode;
+  message: Scalars['String'];
 };
