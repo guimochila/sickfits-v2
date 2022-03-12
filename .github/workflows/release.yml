@@ -17,15 +17,15 @@ jobs:
         with:
           fetch-depth: 0
 
-    - name: Setup Node.js 16x
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16.x
+      - name: Setup Node.js 16x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
 
-    - name: Install Dependencies
-      run: yarn
+      - name: Install Dependencies
+        run: yarn
 
-    - name: Create Release Pull Request
-      uses: changesets/action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
