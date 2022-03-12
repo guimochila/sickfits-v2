@@ -7,6 +7,9 @@
   "author": {
     "name": "Guilherme Scaldelai"
   },
+  "scripts": {
+    "changeset": "changeset"
+  },
   "workspaces": [
     "apps/*"
   ],
@@ -19,5 +22,8 @@
   },
   "resolutions": {
     "graphql-config": "4.1.0"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.21.1"
   }
 }
