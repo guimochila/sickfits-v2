@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import Page from '../components/Layout/Page'
 
 import '../styles/nprogress.css'
+import { CartProvider } from '../context/CartContext'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -18,9 +19,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <Page>
-          <Component {...pageProps} />
-        </Page>
+        <CartProvider>
+          <Page>
+            <Component {...pageProps} />
+          </Page>
+        </CartProvider>
       </Hydrate>
       <ReactQueryDevtools />
     </QueryClientProvider>

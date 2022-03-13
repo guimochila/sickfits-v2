@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Cart from '../Cart'
 import HeaderStyled from '../styled/HeaderStyled'
 import Logo from '../styled/Logo'
 import Nav from './Nav'
@@ -15,6 +16,7 @@ function Header() {
       <div className="sub-bar">
         <p>Search</p>
       </div>
+      <Cart />
     </HeaderStyled>
   )
 }

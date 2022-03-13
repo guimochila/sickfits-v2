@@ -19,6 +19,68 @@ export type Scalars = {
 
 export type AuthenticatedItem = User;
 
+export type CartItem = {
+  __typename?: 'CartItem';
+  id: Scalars['ID'];
+  product: Maybe<Product>;
+  quantity: Maybe<Scalars['Int']>;
+  user: Maybe<User>;
+};
+
+export type CartItemCreateInput = {
+  product: InputMaybe<ProductRelateToOneForCreateInput>;
+  quantity: InputMaybe<Scalars['Int']>;
+  user: InputMaybe<UserRelateToOneForCreateInput>;
+};
+
+export type CartItemManyRelationFilter = {
+  every: InputMaybe<CartItemWhereInput>;
+  none: InputMaybe<CartItemWhereInput>;
+  some: InputMaybe<CartItemWhereInput>;
+};
+
+export type CartItemOrderByInput = {
+  id: InputMaybe<OrderDirection>;
+  quantity: InputMaybe<OrderDirection>;
+};
+
+export type CartItemRelateToManyForCreateInput = {
+  connect: InputMaybe<Array<CartItemWhereUniqueInput>>;
+  create: InputMaybe<Array<CartItemCreateInput>>;
+};
+
+export type CartItemRelateToManyForUpdateInput = {
+  connect: InputMaybe<Array<CartItemWhereUniqueInput>>;
+  create: InputMaybe<Array<CartItemCreateInput>>;
+  disconnect: InputMaybe<Array<CartItemWhereUniqueInput>>;
+  set: InputMaybe<Array<CartItemWhereUniqueInput>>;
+};
+
+export type CartItemUpdateArgs = {
+  data: CartItemUpdateInput;
+  where: CartItemWhereUniqueInput;
+};
+
+export type CartItemUpdateInput = {
+  product: InputMaybe<ProductRelateToOneForUpdateInput>;
+  quantity: InputMaybe<Scalars['Int']>;
+  user: InputMaybe<UserRelateToOneForUpdateInput>;
+};
+
+export type CartItemWhereInput = {
+  AND: InputMaybe<Array<CartItemWhereInput>>;
+  NOT: InputMaybe<Array<CartItemWhereInput>>;
+  OR: InputMaybe<Array<CartItemWhereInput>>;
+  id: InputMaybe<IdFilter>;
+  product: InputMaybe<ProductWhereInput>;
+  quantity: InputMaybe<IntFilter>;
+  user: InputMaybe<UserWhereInput>;
+};
+
+export type CartItemWhereUniqueInput = {
+  id: InputMaybe<Scalars['ID']>;
+};
+
 /**
  * Mirrors the formatting options [Cloudinary provides](https://cloudinary.com/documentation/image_transformation_reference).
  * All options are strings as they ultimately end up in a URL.
@@ -98,6 +160,17 @@ export type IdFilter = {
   lte: InputMaybe<Scalars['ID']>;
   not: InputMaybe<IdFilter>;
   notIn: InputMaybe<Array<Scalars['ID']>>;
+};
+
+export type IntFilter = {
+  equals: InputMaybe<Scalars['Int']>;
+  gt: InputMaybe<Scalars['Int']>;
+  gte: InputMaybe<Scalars['Int']>;
+  in: InputMaybe<Array<Scalars['Int']>>;
+  lt: InputMaybe<Scalars['Int']>;
+  lte: InputMaybe<Scalars['Int']>;
+  not: InputMaybe<IntFilter>;
+  notIn: InputMaybe<Array<Scalars['Int']>>;
 };
 
 export type IntNullableFilter = {
@@ -214,6 +287,8 @@ export type KeystoneMeta = {
 export type Mutation = {
   __typename?: 'Mutation';
   authenticateUserWithPassword: Maybe<UserAuthenticationWithPasswordResult>;
+  createCartItem: Maybe<CartItem>;
+  createCartItems: Maybe<Array<Maybe<CartItem>>>;
   createInitialUser: UserAuthenticationWithPasswordSuccess;
   createProduct: Maybe<Product>;
   createProductImage: Maybe<ProductImage>;
@@ -221,6 +296,8 @@ export type Mutation = {
   createProducts: Maybe<Array<Maybe<Product>>>;
   createUser: Maybe<User>;
   createUsers: Maybe<Array<Maybe<User>>>;
+  deleteCartItem: Maybe<CartItem>;
+  deleteCartItems: Maybe<Array<Maybe<CartItem>>>;
   deleteProduct: Maybe<Product>;
   deleteProductImage: Maybe<ProductImage>;
   deleteProductImages: Maybe<Array<Maybe<ProductImage>>>;
@@ -230,6 +307,8 @@ export type Mutation = {
   endSession: Scalars['Boolean'];
   redeemUserPasswordResetToken: Maybe<RedeemUserPasswordResetTokenResult>;
   sendUserPasswordResetLink: Scalars['Boolean'];
+  updateCartItem: Maybe<CartItem>;
+  updateCartItems: Maybe<Array<Maybe<CartItem>>>;
   updateProduct: Maybe<Product>;
   updateProductImage: Maybe<ProductImage>;
   updateProductImages: Maybe<Array<Maybe<ProductImage>>>;
@@ -242,6 +321,16 @@ export type Mutation = {
 export type MutationAuthenticateUserWithPasswordArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
+};
+
+
+export type MutationCreateCartItemArgs = {
+  data: CartItemCreateInput;
+};
+
+
+export type MutationCreateCartItemsArgs = {
+  data: Array<CartItemCreateInput>;
 };
 
 
@@ -277,6 +366,16 @@ export type MutationCreateUserArgs = {
 
 export type MutationCreateUsersArgs = {
   data: Array<UserCreateInput>;
+};
+
+
+export type MutationDeleteCartItemArgs = {
+  where: CartItemWhereUniqueInput;
+};
+
+
+export type MutationDeleteCartItemsArgs = {
+  where: Array<CartItemWhereUniqueInput>;
 };
 
 
@@ -319,6 +418,17 @@ export type MutationRedeemUserPasswordResetTokenArgs = {
 
 export type MutationSendUserPasswordResetLinkArgs = {
   email: Scalars['String'];
+};
+
+
+export type MutationUpdateCartItemArgs = {
+  data: CartItemUpdateInput;
+  where: CartItemWhereUniqueInput;
+};
+
+
+export type MutationUpdateCartItemsArgs = {
+  data: Array<CartItemUpdateArgs>;
 };
 
 
@@ -525,6 +635,9 @@ export type ProductWhereUniqueInput = {
 export type Query = {
   __typename?: 'Query';
   authenticatedItem: Maybe<AuthenticatedItem>;
+  cartItem: Maybe<CartItem>;
+  cartItems: Maybe<Array<CartItem>>;
+  cartItemsCount: Maybe<Scalars['Int']>;
   keystone: KeystoneMeta;
   product: Maybe<Product>;
   productImage: Maybe<ProductImage>;
@@ -536,6 +649,24 @@ export type Query = {
   users: Maybe<Array<User>>;
   usersCount: Maybe<Scalars['Int']>;
   validateUserPasswordResetToken: Maybe<ValidateUserPasswordResetTokenResult>;
+};
+
+
+export type QueryCartItemArgs = {
+  where: CartItemWhereUniqueInput;
+};
+
+
+export type QueryCartItemsArgs = {
+  orderBy?: Array<CartItemOrderByInput>;
+  skip?: Scalars['Int'];
+  take: InputMaybe<Scalars['Int']>;
+  where?: CartItemWhereInput;
+};
+
+
+export type QueryCartItemsCountArgs = {
+  where?: CartItemWhereInput;
 };
 
 
@@ -639,6 +770,8 @@ export type StringNullableFilter = {
 
 export type User = {
   __typename?: 'User';
+  cart: Maybe<Array<CartItem>>;
+  cartCount: Maybe<Scalars['Int']>;
   email: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   name: Maybe<Scalars['String']>;
@@ -646,6 +779,19 @@ export type User = {
   passwordResetIssuedAt: Maybe<Scalars['DateTime']>;
   passwordResetRedeemedAt: Maybe<Scalars['DateTime']>;
   passwordResetToken: Maybe<PasswordState>;
+};
+
+
+export type UserCartArgs = {
+  orderBy?: Array<CartItemOrderByInput>;
+  skip?: Scalars['Int'];
+  take: InputMaybe<Scalars['Int']>;
+  where?: CartItemWhereInput;
+};
+
+
+export type UserCartCountArgs = {
+  where?: CartItemWhereInput;
 };
 
 export type UserAuthenticationWithPasswordFailure = {
@@ -662,6 +808,7 @@ export type UserAuthenticationWithPasswordSuccess = {
 };
 
 export type UserCreateInput = {
+  cart: InputMaybe<CartItemRelateToManyForCreateInput>;
   email: InputMaybe<Scalars['String']>;
   name: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
@@ -678,12 +825,24 @@ export type UserOrderByInput = {
   passwordResetRedeemedAt: InputMaybe<OrderDirection>;
 };
 
+export type UserRelateToOneForCreateInput = {
+  connect: InputMaybe<UserWhereUniqueInput>;
+  create: InputMaybe<UserCreateInput>;
+};
+
+export type UserRelateToOneForUpdateInput = {
+  connect: InputMaybe<UserWhereUniqueInput>;
+  create: InputMaybe<UserCreateInput>;
+  disconnect: InputMaybe<Scalars['Boolean']>;
+};
+
 export type UserUpdateArgs = {
   data: UserUpdateInput;
   where: UserWhereUniqueInput;
 };
 
 export type UserUpdateInput = {
+  cart: InputMaybe<CartItemRelateToManyForUpdateInput>;
   email: InputMaybe<Scalars['String']>;
   name: InputMaybe<Scalars['String']>;
   password: InputMaybe<Scalars['String']>;
@@ -696,6 +855,7 @@ export type UserWhereInput = {
   AND: InputMaybe<Array<UserWhereInput>>;
   NOT: InputMaybe<Array<UserWhereInput>>;
   OR: InputMaybe<Array<UserWhereInput>>;
+  cart: InputMaybe<CartItemManyRelationFilter>;
   email: InputMaybe<StringFilter>;
   id: InputMaybe<IdFilter>;
   name: InputMaybe<StringFilter>;
