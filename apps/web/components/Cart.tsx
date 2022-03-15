@@ -4,7 +4,7 @@ import calcTotalPrice from '../utils/calcTotalPrice'
 import formatMoney from '../utils/formatMoney'
 import CartItem from './CartItem'
 import CartStyled from './styled/CartStyled'
-import CloseButton from './styled/ClosButton'
+import CloseButton from './styled/CloseButton'
 import Supreme from './styled/Supreme'
 
 function Cart() {
