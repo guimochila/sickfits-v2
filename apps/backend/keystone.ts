@@ -8,6 +8,7 @@ import { ProductImage } from './schemas/ProductImage'
 import { CartItem } from './schemas/CartItem'
 import { insertSeedData } from './seed-data'
 import MailService from './lib/mail'
+import { extendGraphqlSchema } from './mutations'
 
 const databaseUrl = process.env.DATABASE_URL || ''
 const port = parseInt(process.env.PORT) || 4000
@@ -61,5 +62,6 @@ export default withAuth(
       isAccessAllowed: ({ session }) => !!session,
     },
     session: statelessSessions(sessionConfig),
+    extendGraphqlSchema,
   }),
 )
