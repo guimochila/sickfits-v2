@@ -8,7 +8,8 @@
     "name": "Guilherme Scaldelai"
   },
   "scripts": {
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "dev": "turbo run dev"
   },
   "workspaces": [
     "apps/*"

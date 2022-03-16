@@ -286,6 +286,7 @@ export type KeystoneMeta = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  addToCart: Maybe<CartItem>;
   authenticateUserWithPassword: Maybe<UserAuthenticationWithPasswordResult>;
   createCartItem: Maybe<CartItem>;
   createCartItems: Maybe<Array<Maybe<CartItem>>>;
@@ -315,6 +316,11 @@ export type Mutation = {
   updateProducts: Maybe<Array<Maybe<Product>>>;
   updateUser: Maybe<User>;
   updateUsers: Maybe<Array<Maybe<User>>>;
+};
+
+
+export type MutationAddToCartArgs = {
+  productId: Scalars['ID'];
 };
 
 

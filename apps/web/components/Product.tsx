@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Product as TProduct } from '../@types/graphql-generated'
 import formatMoney from '../utils/formatMoney'
+import AddToCart from './AddToCart'
 import DeleteProduct from './DeleteProduct'
 import Item from './styled/Item'
 import PriceTag from './styled/PriceTag'
@@ -37,6 +38,7 @@ function Product({ product }: IProductProps) {
         >
           Edit ✏️
         </Link>
+        <AddToCart id={product.id} />
         <DeleteProduct id={product.id}>Delete</DeleteProduct>
       </div>
     </Item>
