@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { CartItem } from '../@types/graphql-generated'
 import formatMoney from '../utils/formatMoney'
+import RemoveFromCart from './RemoveFromCart'
 import CartItemStyled from './styled/CartItemStyled'
 
 interface ICartItemProps {
@@ -29,6 +30,7 @@ function CartItem({ cartItem }: ICartItemProps) {
           </em>
         </p>
       </div>
+      <RemoveFromCart id={cartItem.id} />
     </CartItemStyled>
   )
 }
