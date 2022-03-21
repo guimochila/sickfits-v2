@@ -2,8 +2,8 @@
   "name": "@sickfits/utils",
   "private": true,
   "version": "0.0.1",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "license": "MIT",
   "author": {
     "name": "Guilherme Scaldelai"

@@ -12,7 +12,8 @@
     "dev": "turbo run dev"
   },
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "devDependencies": {
     "turbo": "^1.1.2"

@@ -1,8 +1,10 @@
 import { useCart } from '../context/CartContext'
 import useUser from '../hooks/useUser'
 import calcTotalPrice from '../utils/calcTotalPrice'
-import formatMoney from '../utils/formatMoney'
+import formatMoney from '@sickfits/utils'
 import CartItem from './CartItem'
+import Checkout from './Checkout'
+import CheckoutContainer from './CheckoutContainer'
 import CartStyled from './styled/CartStyled'
 import CloseButton from './styled/CloseButton'
 import Supreme from './styled/Supreme'
@@ -22,12 +24,15 @@ function Cart() {
         <CloseButton onClick={closeCart}>&times;</CloseButton>
       </header>
       <ul>
-        {user.cart.map((cartItem) => (
+        {user.cart.map(cartItem => (
           <CartItem key={cartItem.id} cartItem={cartItem} />
         ))}
       </ul>
       <footer>
         <p>{formatMoney(calcTotalPrice(user.cart))}</p>
+        <CheckoutContainer>
+          <Checkout />
+        </CheckoutContainer>
       </footer>
     </CartStyled>
   )

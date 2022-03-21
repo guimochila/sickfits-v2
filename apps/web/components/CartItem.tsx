@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { CartItem } from '../@types/graphql-generated'
-import formatMoney from '../utils/formatMoney'
+import formatMoney from '@sickfits/utils'
 import RemoveFromCart from './RemoveFromCart'
 import CartItemStyled from './styled/CartItemStyled'
 

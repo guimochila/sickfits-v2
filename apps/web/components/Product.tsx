@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Product as TProduct } from '../@types/graphql-generated'
-import formatMoney from '../utils/formatMoney'
+import formatMoney from '@sickfits/utils'
 import AddToCart from './AddToCart'
 import DeleteProduct from './DeleteProduct'
 import Item from './styled/Item'

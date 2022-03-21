@@ -9,6 +9,8 @@ import { CartItem } from './schemas/CartItem'
 import { insertSeedData } from './seed-data'
 import MailService from './lib/mail'
 import { extendGraphqlSchema } from './mutations'
+import { OrderItem } from './schemas/OrderItem'
+import { Order } from './schemas/Order'
 
 const databaseUrl = process.env.DATABASE_URL || ''
 const port = parseInt(process.env.PORT) || 4000
@@ -57,6 +59,8 @@ export default withAuth(
       Product,
       ProductImage,
       CartItem,
+      OrderItem,
+      Order,
     },
     ui: {
       isAccessAllowed: ({ session }) => !!session,
