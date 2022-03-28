@@ -288,9 +288,14 @@ export type Mutation = {
   __typename?: 'Mutation';
   addToCart: Maybe<CartItem>;
   authenticateUserWithPassword: Maybe<UserAuthenticationWithPasswordResult>;
+  checkout: Maybe<Order>;
   createCartItem: Maybe<CartItem>;
   createCartItems: Maybe<Array<Maybe<CartItem>>>;
   createInitialUser: UserAuthenticationWithPasswordSuccess;
+  createOrder: Maybe<Order>;
+  createOrderItem: Maybe<OrderItem>;
+  createOrderItems: Maybe<Array<Maybe<OrderItem>>>;
+  createOrders: Maybe<Array<Maybe<Order>>>;
   createProduct: Maybe<Product>;
   createProductImage: Maybe<ProductImage>;
   createProductImages: Maybe<Array<Maybe<ProductImage>>>;
@@ -299,6 +304,10 @@ export type Mutation = {
   createUsers: Maybe<Array<Maybe<User>>>;
   deleteCartItem: Maybe<CartItem>;
   deleteCartItems: Maybe<Array<Maybe<CartItem>>>;
+  deleteOrder: Maybe<Order>;
+  deleteOrderItem: Maybe<OrderItem>;
+  deleteOrderItems: Maybe<Array<Maybe<OrderItem>>>;
+  deleteOrders: Maybe<Array<Maybe<Order>>>;
   deleteProduct: Maybe<Product>;
   deleteProductImage: Maybe<ProductImage>;
   deleteProductImages: Maybe<Array<Maybe<ProductImage>>>;
@@ -310,6 +319,10 @@ export type Mutation = {
   sendUserPasswordResetLink: Scalars['Boolean'];
   updateCartItem: Maybe<CartItem>;
   updateCartItems: Maybe<Array<Maybe<CartItem>>>;
+  updateOrder: Maybe<Order>;
+  updateOrderItem: Maybe<OrderItem>;
+  updateOrderItems: Maybe<Array<Maybe<OrderItem>>>;
+  updateOrders: Maybe<Array<Maybe<Order>>>;
   updateProduct: Maybe<Product>;
   updateProductImage: Maybe<ProductImage>;
   updateProductImages: Maybe<Array<Maybe<ProductImage>>>;
@@ -330,6 +343,11 @@ export type MutationAuthenticateUserWithPasswordArgs = {
 };
 
 
+export type MutationCheckoutArgs = {
+  token: Scalars['String'];
+};
+
+
 export type MutationCreateCartItemArgs = {
   data: CartItemCreateInput;
 };
@@ -342,6 +360,26 @@ export type MutationCreateCartItemsArgs = {
 
 export type MutationCreateInitialUserArgs = {
   data: CreateInitialUserInput;
+};
+
+
+export type MutationCreateOrderArgs = {
+  data: OrderCreateInput;
+};
+
+
+export type MutationCreateOrderItemArgs = {
+  data: OrderItemCreateInput;
+};
+
+
+export type MutationCreateOrderItemsArgs = {
+  data: Array<OrderItemCreateInput>;
+};
+
+
+export type MutationCreateOrdersArgs = {
+  data: Array<OrderCreateInput>;
 };
 
 
@@ -382,6 +420,26 @@ export type MutationDeleteCartItemArgs = {
 
 export type MutationDeleteCartItemsArgs = {
   where: Array<CartItemWhereUniqueInput>;
+};
+
+
+export type MutationDeleteOrderArgs = {
+  where: OrderWhereUniqueInput;
+};
+
+
+export type MutationDeleteOrderItemArgs = {
+  where: OrderItemWhereUniqueInput;
+};
+
+
+export type MutationDeleteOrderItemsArgs = {
+  where: Array<OrderItemWhereUniqueInput>;
+};
+
+
+export type MutationDeleteOrdersArgs = {
+  where: Array<OrderWhereUniqueInput>;
 };
 
 
@@ -435,6 +493,28 @@ export type MutationUpdateCartItemArgs = {
 
 export type MutationUpdateCartItemsArgs = {
   data: Array<CartItemUpdateArgs>;
+};
+
+
+export type MutationUpdateOrderArgs = {
+  data: OrderUpdateInput;
+  where: OrderWhereUniqueInput;
+};
+
+
+export type MutationUpdateOrderItemArgs = {
+  data: OrderItemUpdateInput;
+  where: OrderItemWhereUniqueInput;
+};
+
+
+export type MutationUpdateOrderItemsArgs = {
+  data: Array<OrderItemUpdateArgs>;
+};
+
+
+export type MutationUpdateOrdersArgs = {
+  data: Array<OrderUpdateArgs>;
 };
 
 
@@ -498,10 +578,180 @@ export type NestedStringNullableFilter = {
   startsWith: InputMaybe<Scalars['String']>;
 };
 
+export type Order = {
+  __typename?: 'Order';
+  charge: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  items: Maybe<Array<OrderItem>>;
+  itemsCount: Maybe<Scalars['Int']>;
+  label: Maybe<Scalars['String']>;
+  total: Maybe<Scalars['Int']>;
+  user: Maybe<User>;
+};
+
+
+export type OrderItemsArgs = {
+  orderBy?: Array<OrderItemOrderByInput>;
+  skip?: Scalars['Int'];
+  take: InputMaybe<Scalars['Int']>;
+  where?: OrderItemWhereInput;
+};
+
+
+export type OrderItemsCountArgs = {
+  where?: OrderItemWhereInput;
+};
+
+export type OrderCreateInput = {
+  charge: InputMaybe<Scalars['String']>;
+  items: InputMaybe<OrderItemRelateToManyForCreateInput>;
+  total: InputMaybe<Scalars['Int']>;
+  user: InputMaybe<UserRelateToOneForCreateInput>;
+};
+
 export enum OrderDirection {
   Asc = 'asc',
   Desc = 'desc'
 }
+
+export type OrderItem = {
+  __typename?: 'OrderItem';
+  description: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  name: Maybe<Scalars['String']>;
+  order: Maybe<Order>;
+  photo: Maybe<ProductImage>;
+  price: Maybe<Scalars['Int']>;
+  quantity: Maybe<Scalars['Int']>;
+};
+
+export type OrderItemCreateInput = {
+  description: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
+  order: InputMaybe<OrderRelateToOneForCreateInput>;
+  photo: InputMaybe<ProductImageRelateToOneForCreateInput>;
+  price: InputMaybe<Scalars['Int']>;
+  quantity: InputMaybe<Scalars['Int']>;
+};
+
+export type OrderItemManyRelationFilter = {
+  every: InputMaybe<OrderItemWhereInput>;
+  none: InputMaybe<OrderItemWhereInput>;
+  some: InputMaybe<OrderItemWhereInput>;
+};
+
+export type OrderItemOrderByInput = {
+  description: InputMaybe<OrderDirection>;
+  id: InputMaybe<OrderDirection>;
+  name: InputMaybe<OrderDirection>;
+  price: InputMaybe<OrderDirection>;
+  quantity: InputMaybe<OrderDirection>;
+};
+
+export type OrderItemRelateToManyForCreateInput = {
+  connect: InputMaybe<Array<OrderItemWhereUniqueInput>>;
+  create: InputMaybe<Array<OrderItemCreateInput>>;
+};
+
+export type OrderItemRelateToManyForUpdateInput = {
+  connect: InputMaybe<Array<OrderItemWhereUniqueInput>>;
+  create: InputMaybe<Array<OrderItemCreateInput>>;
+  disconnect: InputMaybe<Array<OrderItemWhereUniqueInput>>;
+  set: InputMaybe<Array<OrderItemWhereUniqueInput>>;
+};
+
+export type OrderItemUpdateArgs = {
+  data: OrderItemUpdateInput;
+  where: OrderItemWhereUniqueInput;
+};
+
+export type OrderItemUpdateInput = {
+  description: InputMaybe<Scalars['String']>;
+  name: InputMaybe<Scalars['String']>;
+  order: InputMaybe<OrderRelateToOneForUpdateInput>;
+  photo: InputMaybe<ProductImageRelateToOneForUpdateInput>;
+  price: InputMaybe<Scalars['Int']>;
+  quantity: InputMaybe<Scalars['Int']>;
+};
+
+export type OrderItemWhereInput = {
+  AND: InputMaybe<Array<OrderItemWhereInput>>;
+  NOT: InputMaybe<Array<OrderItemWhereInput>>;
+  OR: InputMaybe<Array<OrderItemWhereInput>>;
+  description: InputMaybe<StringFilter>;
+  id: InputMaybe<IdFilter>;
+  name: InputMaybe<StringFilter>;
+  order: InputMaybe<OrderWhereInput>;
+  photo: InputMaybe<ProductImageWhereInput>;
+  price: InputMaybe<IntNullableFilter>;
+  quantity: InputMaybe<IntNullableFilter>;
+};
+
+export type OrderItemWhereUniqueInput = {
+  id: InputMaybe<Scalars['ID']>;
+};
+
+export type OrderManyRelationFilter = {
+  every: InputMaybe<OrderWhereInput>;
+  none: InputMaybe<OrderWhereInput>;
+  some: InputMaybe<OrderWhereInput>;
+};
+
+export type OrderOrderByInput = {
+  charge: InputMaybe<OrderDirection>;
+  id: InputMaybe<OrderDirection>;
+  total: InputMaybe<OrderDirection>;
+};
+
+export type OrderRelateToManyForCreateInput = {
+  connect: InputMaybe<Array<OrderWhereUniqueInput>>;
+  create: InputMaybe<Array<OrderCreateInput>>;
+};
+
+export type OrderRelateToManyForUpdateInput = {
+  connect: InputMaybe<Array<OrderWhereUniqueInput>>;
+  create: InputMaybe<Array<OrderCreateInput>>;
+  disconnect: InputMaybe<Array<OrderWhereUniqueInput>>;
+  set: InputMaybe<Array<OrderWhereUniqueInput>>;
+};
+
+export type OrderRelateToOneForCreateInput = {
+  connect: InputMaybe<OrderWhereUniqueInput>;
+  create: InputMaybe<OrderCreateInput>;
+};
+
+export type OrderRelateToOneForUpdateInput = {
+  connect: InputMaybe<OrderWhereUniqueInput>;
+  create: InputMaybe<OrderCreateInput>;
+  disconnect: InputMaybe<Scalars['Boolean']>;
+};
+
+export type OrderUpdateArgs = {
+  data: OrderUpdateInput;
+  where: OrderWhereUniqueInput;
+};
+
+export type OrderUpdateInput = {
+  charge: InputMaybe<Scalars['String']>;
+  items: InputMaybe<OrderItemRelateToManyForUpdateInput>;
+  total: InputMaybe<Scalars['Int']>;
+  user: InputMaybe<UserRelateToOneForUpdateInput>;
+};
+
+export type OrderWhereInput = {
+  AND: InputMaybe<Array<OrderWhereInput>>;
+  NOT: InputMaybe<Array<OrderWhereInput>>;
+  OR: InputMaybe<Array<OrderWhereInput>>;
+  charge: InputMaybe<StringFilter>;
+  id: InputMaybe<IdFilter>;
+  items: InputMaybe<OrderItemManyRelationFilter>;
+  total: InputMaybe<IntNullableFilter>;
+  user: InputMaybe<UserWhereInput>;
+};
+
+export type OrderWhereUniqueInput = {
+  id: InputMaybe<Scalars['ID']>;
+};
 
 export type PasswordFilter = {
   isSet: Scalars['Boolean'];
@@ -645,6 +895,12 @@ export type Query = {
   cartItems: Maybe<Array<CartItem>>;
   cartItemsCount: Maybe<Scalars['Int']>;
   keystone: KeystoneMeta;
+  order: Maybe<Order>;
+  orderItem: Maybe<OrderItem>;
+  orderItems: Maybe<Array<OrderItem>>;
+  orderItemsCount: Maybe<Scalars['Int']>;
+  orders: Maybe<Array<Order>>;
+  ordersCount: Maybe<Scalars['Int']>;
   product: Maybe<Product>;
   productImage: Maybe<ProductImage>;
   productImages: Maybe<Array<ProductImage>>;
@@ -673,6 +929,42 @@ export type QueryCartItemsArgs = {
 
 export type QueryCartItemsCountArgs = {
   where?: CartItemWhereInput;
+};
+
+
+export type QueryOrderArgs = {
+  where: OrderWhereUniqueInput;
+};
+
+
+export type QueryOrderItemArgs = {
+  where: OrderItemWhereUniqueInput;
+};
+
+
+export type QueryOrderItemsArgs = {
+  orderBy?: Array<OrderItemOrderByInput>;
+  skip?: Scalars['Int'];
+  take: InputMaybe<Scalars['Int']>;
+  where?: OrderItemWhereInput;
+};
+
+
+export type QueryOrderItemsCountArgs = {
+  where?: OrderItemWhereInput;
+};
+
+
+export type QueryOrdersArgs = {
+  orderBy?: Array<OrderOrderByInput>;
+  skip?: Scalars['Int'];
+  take: InputMaybe<Scalars['Int']>;
+  where?: OrderWhereInput;
+};
+
+
+export type QueryOrdersCountArgs = {
+  where?: OrderWhereInput;
 };
 
 
@@ -781,6 +1073,8 @@ export type User = {
   email: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   name: Maybe<Scalars['String']>;
+  orders: Maybe<Array<Order>>;
+  ordersCount: Maybe<Scalars['Int']>;
   password: Maybe<PasswordState>;
   passwordResetIssuedAt: Maybe<Scalars['DateTime']>;
   passwordResetRedeemedAt: Maybe<Scalars['DateTime']>;
@@ -800,6 +1094,19 @@ export type UserCartCountArgs = {
   where?: CartItemWhereInput;
 };
 
+
+export type UserOrdersArgs = {
+  orderBy?: Array<OrderOrderByInput>;
+  skip?: Scalars['Int'];
+  take: InputMaybe<Scalars['Int']>;
+  where?: OrderWhereInput;
+};
+
+
+export type UserOrdersCountArgs = {
+  where?: OrderWhereInput;
+};
+
 export type UserAuthenticationWithPasswordFailure = {
   __typename?: 'UserAuthenticationWithPasswordFailure';
   message: Scalars['String'];
@@ -817,6 +1124,7 @@ export type UserCreateInput = {
   cart: InputMaybe<CartItemRelateToManyForCreateInput>;
   email: InputMaybe<Scalars['String']>;
   name: InputMaybe<Scalars['String']>;
+  orders: InputMaybe<OrderRelateToManyForCreateInput>;
   password: InputMaybe<Scalars['String']>;
   passwordResetIssuedAt: InputMaybe<Scalars['DateTime']>;
   passwordResetRedeemedAt: InputMaybe<Scalars['DateTime']>;
@@ -851,6 +1159,7 @@ export type UserUpdateInput = {
   cart: InputMaybe<CartItemRelateToManyForUpdateInput>;
   email: InputMaybe<Scalars['String']>;
   name: InputMaybe<Scalars['String']>;
+  orders: InputMaybe<OrderRelateToManyForUpdateInput>;
   password: InputMaybe<Scalars['String']>;
   passwordResetIssuedAt: InputMaybe<Scalars['DateTime']>;
   passwordResetRedeemedAt: InputMaybe<Scalars['DateTime']>;
@@ -865,6 +1174,7 @@ export type UserWhereInput = {
   email: InputMaybe<StringFilter>;
   id: InputMaybe<IdFilter>;
   name: InputMaybe<StringFilter>;
+  orders: InputMaybe<OrderManyRelationFilter>;
   password: InputMaybe<PasswordFilter>;
   passwordResetIssuedAt: InputMaybe<DateTimeNullableFilter>;
   passwordResetRedeemedAt: InputMaybe<DateTimeNullableFilter>;
