@@ -22,12 +22,13 @@ interface IUseOrderResponse {
 }
 
 function useOrder(options?: UseMutationOptions<IUseOrderResponse>) {
-  return useMutation<IUseOrderResponse, unknown>(async token => {
-    const { checkout } = await gqlClient.request(CREATE_ORDER_MUTATION, {
-      token,
-    })
-    return checkout
-  }, options)
+  return useMutation<IUseOrderResponse, unknown, string>(
+    async token =>
+      gqlClient.request(CREATE_ORDER_MUTATION, {
+        token,
+      }),
+    options,
+  )
 }
 
 export default useOrder

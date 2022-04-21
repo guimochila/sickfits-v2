@@ -76,7 +76,7 @@ async function checkout(
     },
   })
 
-  const cartItemIds = cartItems.map(cartItem => cartItem.id)
+  const cartItemIds = user.cart.map(cartItem => cartItem.id)
   await context.db.CartItem.deleteMany({
     where: cartItemIds.map((id: string) => ({ id })),
   })

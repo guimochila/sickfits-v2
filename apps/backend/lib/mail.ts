@@ -35,7 +35,11 @@ class MailService {
       
       <a href="${process.env.FRONTEND_URL}/reset?token=${resetToken}">Click Here to reset</a>
       `),
+    }, (error, info) => {
+
+      console.log(nodemailer.getTestMessageUrl(info))
     })
+
   }
 }
 

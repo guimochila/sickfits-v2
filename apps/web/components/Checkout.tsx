@@ -1,6 +1,8 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import { useRouter } from 'next/router'
 import nProgress from 'nprogress'
 import { FormEvent, useState } from 'react'
+import { useCart } from '../context/CartContext'
 import useOrder from '../hooks/useOrder'
 
 import CheckoutForm from './styled/CheckoutForm'
@@ -11,7 +13,27 @@ function Checkout() {
   const [loading, setLoading] = useState(false)
   const stripe = useStripe()
   const elements = useElements()
-  const orderMutation = useOrder()
+  const router = useRouter()
+  const { closeCart } = useCart()
+  const orderMutation = useOrder({
+    onSuccess: order => {
+      router.push({
+        pathname: '/order/[id]',
+        query: { id: order.checkout.id },
+      })
+
+      closeCart()
+      /* Turn off Loaders */
+      setLoading(false)
+      nProgress.done()
+    },
+    onError: error => {
+      console.error(error)
+      setError(error.message)
+      nProgress.done()
+      return
+    },
+  })
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -41,13 +63,7 @@ function Checkout() {
       return
     }
 
-    const order = await orderMutation.mutate(paymentMethod?.id)
-
-    console.log(order)
-
-    /* Turn off Loaders */
-    setLoading(false)
-    nProgress.done()
+    await orderMutation.mutate(paymentMethod?.id)
   }
 
   return (
