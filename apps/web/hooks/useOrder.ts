@@ -23,7 +23,7 @@ interface IUseOrderResponse {
 
 function useOrder(options?: UseMutationOptions<IUseOrderResponse>) {
   return useMutation<IUseOrderResponse, unknown, string>(
-    async token =>
+    async (token) =>
       gqlClient.request(CREATE_ORDER_MUTATION, {
         token,
       }),

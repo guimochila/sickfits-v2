@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request'
 import { useMutation, UseMutationOptions } from 'react-query'
-import { CartItem, User } from '../@types/graphql-generated'
+import { CartItem } from '../@types/graphql-generated'
 import gqlClient from '../utils/requestClient'
 
 const REMOVE_FROM_CART_MUTATION = gql`

@@ -10,13 +10,13 @@ import SickButton from './styled/SickButton'
 
 function Checkout() {
   const [error, setError] = useState<string | undefined>(undefined)
-  const [loading, setLoading] = useState(false)
+  const [_, setLoading] = useState(false)
   const stripe = useStripe()
   const elements = useElements()
   const router = useRouter()
   const { closeCart } = useCart()
   const orderMutation = useOrder({
-    onSuccess: order => {
+    onSuccess: (order) => {
       router.push({
         pathname: '/order/[id]',
         query: { id: order.checkout.id },
@@ -27,7 +27,7 @@ function Checkout() {
       setLoading(false)
       nProgress.done()
     },
-    onError: error => {
+    onError: (error) => {
       console.error(error)
       setError(error.message)
       nProgress.done()

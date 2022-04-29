@@ -16,7 +16,7 @@ function RemoveFromCart({ id }: IRemoveFromCartProps) {
       const previousUser = queryClient.getQueriesData<User>('user')
 
       const [queryName, oldUser] = previousUser[0]
-      const newCartData = oldUser.cart.filter(item => item.id !== cartItemId)
+      const newCartData = oldUser.cart.filter((item) => item.id !== cartItemId)
 
       queryClient.setQueryData(queryName, { ...oldUser, cart: newCartData })
 

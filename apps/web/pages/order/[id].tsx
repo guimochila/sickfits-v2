@@ -40,7 +40,7 @@ function SingleOrderPage() {
         <span>{order.items.length}</span>
       </p>
       <div className="items">
-        {order.items.map(item => (
+        {order.items.map((item) => (
           <div className="order-item" key={item.id}>
             <Image
               src={item.photo.image.publicUrlTransformed}

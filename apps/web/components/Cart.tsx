@@ -24,7 +24,7 @@ function Cart() {
         <CloseButton onClick={closeCart}>&times;</CloseButton>
       </header>
       <ul>
-        {user.cart.map(cartItem => (
+        {user.cart.map((cartItem) => (
           <CartItem key={cartItem.id} cartItem={cartItem} />
         ))}
       </ul>

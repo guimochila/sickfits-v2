@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function useForm<T>(initialState: T | { [k: string]: any }) {
   const [inputs, setInputs] = useState(initialState)
   const initialValues = Object.values(initialState).join('')
@@ -12,6 +13,7 @@ function useForm<T>(initialState: T | { [k: string]: any }) {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const inputKey = e.target.name || e.target.id
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let inputValue: any = e.target.value
 
     if (e.target.type === 'number') {
@@ -34,7 +36,7 @@ function useForm<T>(initialState: T | { [k: string]: any }) {
 
   function clearForm() {
     const blankState = Object.fromEntries(
-      Object.entries(initialState).map(([key, _]) => [key, '']),
+      Object.entries(initialState).map(([key]) => [key, '']),
     )
 
     setInputs(blankState)

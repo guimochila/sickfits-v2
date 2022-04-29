@@ -1,5 +1,4 @@
 import { FormEvent } from 'react'
-import { MutationUpdateProductArgs } from '../@types/graphql-generated'
 import useForm from '../hooks/useForm'
 import useProduct from '../hooks/useProduct'
 import useUpdateProduct from '../hooks/useUpdateProduct'

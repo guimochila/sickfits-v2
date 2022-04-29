@@ -23,7 +23,7 @@ function Search() {
     inputValue,
   } = useCombobox({
     items,
-    itemToString: item => item?.name || '',
+    itemToString: (item) => item?.name || '',
     onSelectedItemChange({ selectedItem }) {
       router.push({
         pathname: `/product/${selectedItem?.id}`,

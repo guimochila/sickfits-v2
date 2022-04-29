@@ -27,5 +27,11 @@
   "volta": {
     "node": "16.14.0",
     "yarn": "1.22.17"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "yarn lint",
+      "yarn test --findRelatedTests --bail"
+    ]
   }
 }
