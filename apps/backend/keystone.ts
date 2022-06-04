@@ -11,6 +11,8 @@ import MailService from './lib/mail'
 import { extendGraphqlSchema } from './mutations'
 import { OrderItem } from './schemas/OrderItem'
 import { Order } from './schemas/Order'
+import { Role } from './schemas/Role'
+import { permissionsList } from './schemas/fields'
 
 const databaseUrl = process.env.DATABASE_URL || ''
 const port = parseInt(process.env.PORT) || 4000
@@ -27,7 +29,7 @@ const { withAuth } = createAuth({
   initFirstItem: {
     fields: ['name', 'email', 'password'],
   },
-  sessionData: 'id',
+  sessionData: `id role { ${permissionsList.join(' ')} }`,
   passwordResetLink: {
     sendToken: async ({ token, identity }) => {
       MailService.sendMail(token, identity)
@@ -61,6 +63,7 @@ export default withAuth(
       CartItem,
       OrderItem,
       Order,
+      Role,
     },
     ui: {
       isAccessAllowed: ({ session }) => !!session,
