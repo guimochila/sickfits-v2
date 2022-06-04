@@ -1,7 +1,18 @@
 import { list } from '@keystone-6/core'
 import { integer, relationship, text } from '@keystone-6/core/fields'
+import { isSignedIn, rules } from '../access'
 
 const OrderItem = list({
+  access: {
+    operation: {
+      create: isSignedIn,
+      update: () => false,
+      delete: () => false,
+    },
+    filter: {
+      query: rules.canManageOrderItems,
+    },
+  },
   fields: {
     name: text({ validation: { isRequired: true } }),
     description: text({ ui: { displayMode: 'textarea' } }),

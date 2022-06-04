@@ -1,13 +1,20 @@
-import type { SessionContext } from '@keystone-6/core/types';
+import { Permission } from '../schemas/fields'
 
-interface Session {
-  id: string,
-  role: string | null;
+export type Session = {
+  itemId: string
+  listKey: string
+  data: {
+    name: string
+    role?: {
+      id: string
+      name: string
+    } & {
+      [key in Permission]: boolean
+    }
+  }
 }
 
-export type CurrentSession = SessionContext<Session>
-
 export type ListAccessArgs = {
-  itemId?: string;
-  listKey: string
-};
+  itemId?: string
+  session?: Session
+}
