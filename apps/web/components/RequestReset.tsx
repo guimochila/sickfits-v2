@@ -7,11 +7,14 @@ import Form from './styled/Form'
 
 function RequestReset() {
   const [error, setError] = useState<Record<'message', string> | null>(null)
-  const router = useRouter()
-  const { inputs, handleChange, resetForm } = useForm({
+  const { inputs, handleChange } = useForm({
     email: '',
   })
-  const resetMutation = useRequestReset(inputs.email)
+  const resetMutation = useRequestReset(inputs.email, {
+    onError: () => {
+      setError({ message: 'Oops! Something went wrong!' })
+    },
+  })
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

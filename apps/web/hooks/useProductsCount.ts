@@ -2,7 +2,7 @@ import { gql } from 'graphql-request'
 import { useQuery } from 'react-query'
 import gqlClient from '../utils/requestClient'
 
-const PAGINATION_QUERY = gql`
+export const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
     productsCount
   }

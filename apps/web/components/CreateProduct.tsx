@@ -49,13 +49,7 @@ function CreateProduct() {
       >
         <label htmlFor="image">
           Image
-          <input
-            required
-            type="file"
-            id="image"
-            name="image"
-            onChange={handleChange}
-          />
+          <input type="file" id="image" name="image" onChange={handleChange} />
         </label>
         <label htmlFor="name">
           Name
@@ -90,7 +84,9 @@ function CreateProduct() {
           ></textarea>
         </label>
 
-        <button type="submit">+ Add Product</button>
+        <button type="submit" role="button">
+          + Add Product
+        </button>
       </fieldset>
     </Form>
   )

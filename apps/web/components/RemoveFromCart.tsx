@@ -1,5 +1,5 @@
 import { useQueryClient } from 'react-query'
-import { CartItem, User } from '../@types/graphql-generated'
+import { User } from '../@types/graphql-generated'
 import useRemoveFromCart from '../hooks/useRemoveFromCart'
 import BigButton from './styled/BigButton'
 

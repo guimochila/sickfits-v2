@@ -8,7 +8,7 @@ import Item from './styled/Item'
 import PriceTag from './styled/PriceTag'
 import Title from './styled/Title'
 
-interface IProductProps {
+export interface IProductProps {
   product: TProduct
 }
 

@@ -8,7 +8,7 @@ import Form from './styled/Form'
 function SignUp() {
   const [error, setError] = useState<Record<'message', string> | null>(null)
   const router = useRouter()
-  const { inputs, handleChange, resetForm } = useForm({
+  const { inputs, handleChange } = useForm({
     email: '',
     name: '',
     password: '',
@@ -45,7 +45,7 @@ function SignUp() {
           <input
             type="text"
             name="name"
-            placeholder="Your name "
+            placeholder="Your name"
             autoComplete="name"
             value={inputs.name}
             onChange={handleChange}
@@ -67,7 +67,7 @@ function SignUp() {
           <input
             type="password"
             name="password"
-            placeholder="Your password address"
+            placeholder="Your password"
             autoComplete="password"
             value={inputs.password}
             onChange={handleChange}

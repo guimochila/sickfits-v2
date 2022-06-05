@@ -25,7 +25,7 @@ export const rules = {
       return false
     }
 
-    if (permissions.canManageProducts(session)) {
+    if (permissions.canManageProducts({ session })) {
       return true
     }
 
@@ -37,7 +37,7 @@ export const rules = {
       return false
     }
 
-    if (permissions.canManageCart(session)) {
+    if (permissions.canManageCart({ session })) {
       return true
     }
 
@@ -59,7 +59,7 @@ export const rules = {
   },
 
   canReadProducts({ session }: ListAccessArgs) {
-    if (permissions.canManageProducts(session)) {
+    if (isSignedIn({ session }) && permissions.canManageProducts({ session })) {
       return true
     }
 
@@ -71,7 +71,7 @@ export const rules = {
       return false
     }
 
-    if (permissions.canManageUsers(session)) {
+    if (permissions.canManageUsers({ session })) {
       return true
     }
 

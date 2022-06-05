@@ -21,7 +21,7 @@ function Pagination({ page }: IPaginationProps) {
     const pageCount = Math.ceil(productsCount / perPage)
 
     return (
-      <PaginationStyles>
+      <PaginationStyles data-testid="pagination">
         <Head>
           <title>
             Sick Fits - Page {page} of {pageCount}
@@ -32,7 +32,7 @@ function Pagination({ page }: IPaginationProps) {
           <a aria-disabled={page <= 1}>← Prev</a>
         </Link>
         <p>
-          Page {page} of {pageCount}
+          Page {page} of <span data-testid="pageCount">{pageCount}</span>
         </p>
         <p>{productsCount} Items Total</p>
         <Link href={`/products/${page + 1}`}>

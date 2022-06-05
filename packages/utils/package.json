@@ -9,9 +9,15 @@
     "name": "Guilherme Scaldelai"
   },
   "devDependencies": {
+    "@types/jest": "^28.1.0",
+    "babel-jest": "^28.1.0",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.4",
     "typescript": "^4.6.2"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest --watch"
   }
 }

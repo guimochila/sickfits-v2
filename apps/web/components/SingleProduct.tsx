@@ -19,7 +19,7 @@ function SingleProduct({ id }: ISingleProductProps) {
     const { name, description, photo } = product.data
 
     return (
-      <ProductStyled>
+      <ProductStyled data-testid="singleProduct">
         <Head>
           <title>Sick Fits | {name}</title>
         </Head>

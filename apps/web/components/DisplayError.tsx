@@ -28,7 +28,7 @@ function DisplayError({ error }: IDisplayErrorProps) {
   ) {
     return error.networkError.result.errors.map((error: any, i: number) => (
       <ErrorStyles key={i}>
-        <p data-test="graphql-error">
+        <p data-testid="graphql-error">
           <strong>Shoot!</strong>
           {error.message.replace('GraphQL error: ', '')}
         </p>
@@ -37,7 +37,7 @@ function DisplayError({ error }: IDisplayErrorProps) {
   }
   return (
     <ErrorStyles>
-      <p data-test="graphql-error">
+      <p data-testid="graphql-error">
         <strong>Shoot!</strong>
         {error.message.replace('GraphQL error: ', '')}
       </p>
