@@ -9,7 +9,11 @@
       "outputs": []
     },
     "dev": {
-      "cache": false
+      "dependsOn": ["@sickfits/utils#build"],
+      "cache": false,
+      "outputs": [
+        "build/**"
+      ]
     }
   }
 }

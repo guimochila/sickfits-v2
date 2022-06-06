@@ -30,5 +30,6 @@
   "dependencies": {
     "@changesets/changelog-github": "^0.4.3",
     "@changesets/cli": "^2.21.1"
-  }
+  },
+  "packageManager": "yarn@1.22.17"
 }
