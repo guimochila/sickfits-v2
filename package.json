@@ -9,8 +9,10 @@
   },
   "scripts": {
     "changeset": "changeset",
-    "dev": "turbo run dev",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "dev": "turbo run dev"
   },
   "workspaces": [
     "apps/*",
