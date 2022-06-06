@@ -3,17 +3,14 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "build/**"]
     },
     "test": {
       "outputs": []
     },
     "dev": {
       "dependsOn": ["@sickfits/utils#build"],
-      "cache": false,
-      "outputs": [
-        "build/**"
-      ]
+      "cache": false
     }
   }
 }

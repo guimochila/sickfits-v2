@@ -79,7 +79,6 @@ This is a Ecommerce project created for learning purposes. This project is based
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -93,21 +92,48 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/guimochila/sickfits-v2.git
    ```
 3. Install NPM packages
    ```sh
-   npm install
+   yarn
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API'
+4. Go to apps/backend and rename the file `.env.sample` to `.env`
+   ```sh
+   mv .env.sample .env
    ```
+5. Fill out the information inside the `.env` file:
+   ```sh
+   DATABASE_URL=postgres://localhost:5432/sickfits
+   FRONTEND_URL=http://localhost:3000/
+   COOKIE_SECRET=secret
+   PORT=4000
+   CLOUDINARY_CLOUD_NAME=
+   CLOUDINARY_KEY=
+   CLOUDINARY_SECRET=
+   MAIL_HOST=
+   MAIL_PORT=
+   MAIL_USER=
+   MAIL_PASS=
+   STRIPE_SECRET=
+   ```
+6. In the root folder of the project run `yarn run dev`:
+   ```sh
+   yarn run dev
+   ```
+7. Access in your browser:
+
+- Frontend
+  ```sh
+  http://localhost:3000
+  ```
+- Backend
+  ```sh
+  http://localhost:4000
+  ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -116,12 +142,11 @@ _Below is an example of how you can instruct your audience on installing and set
 ## Roadmap
 
 - [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
+- [x] Add turborepo
+- [ ] Deployment
+- [ ] Update Components Structure
+- [ ] Improve UI
+- [ ] Add more tests
 
 See the [open issues](https://github.com/guimochila/sickfits-v2/issues) for a full list of proposed features (and known issues).
 
