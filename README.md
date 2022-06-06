@@ -181,7 +181,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@guimochila](https://twitter.com/guimochila) - email@example.com
+Your Name - [@guimochila](https://twitter.com/guimochila) - gui.mochila@gmail.com
 
 Project Link: [https://github.com/guimochila/sickfits-v2](https://github.com/guimochila/sickfits-v2)
 
