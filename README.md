@@ -57,31 +57,21 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/guimochila/sickfits-v2)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+This is a Ecommerce project created for learning purposes. This project is based on a course, however some different technologies are applied. This is a continous WIP (Work in Progress).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 - [Next.js](https://nextjs.org/)
 - [React.js](https://reactjs.org/)
 - [Emotion](https://emotion.sh/)
 - [Keystone](https://keystonejs.com/)
-- [Mongodb](https://www.mongodb.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Turborepo](https://turborepo.org/)
+- [React-Query](https://react-query.tanstack.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -184,4 +174,4 @@ Project Link: [https://github.com/guimochila/sickfits-v2](https://github.com/gui
 [license-url]: https://github.com/guimochila/sickfits-v2/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/guimochila
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: media/screenshot.png
