@@ -17,6 +17,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "dev": "tsc --watch",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch"
   }
